@@ -26,4 +26,4 @@ line_item = LineItem.create(product_id: crash_pad.id, cart_id: cart.id)
 
 order = Order.create(user_id: user.id, cart_id: cart.id)
 
-rating = Rating.create(product_id: dog_toy.id, rating_id: nil, user_id: user.id, body: 'my dog loved chasing this rabbit all day', score: 10)
+review = Review.create(product_id: dog_toy.id, user_id: user.id, body: 'my dog loved chasing this rabbit all day', rating: 10)
