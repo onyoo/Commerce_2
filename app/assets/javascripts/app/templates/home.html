@@ -1,4 +1,8 @@
 <div>
-  Home
+  <span><a ui-sref='home'>Home</a></span>
+
+  <span ng-show='user.id'><a ng-click='home.logout()'>Logout</a></span>
+  <span ng-show='!user.id'><a ui-sref='home.login'>Login</a></span>
 </div>
+
 <ui-view></ui-view>

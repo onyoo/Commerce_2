@@ -5,7 +5,7 @@ angular
       .state('home', {
         url: '/',
         templateUrl: 'app/templates/home.html',
-        controller: 'Index as index'
+        controller: 'Home as home'
       })
       .state('home.login', {
         url: 'login',
@@ -13,7 +13,9 @@ angular
         controller: 'Session as session',
         onEnter: function(Auth, $state) {
           Auth.currentUser().then(function(resp) { // checks if user has already been logged-in returns user obj if called
-            $state.go('home') //redirects home if signed in
+            if(resp.id!==undefined && resp.email!== undefined){
+              $state.go('home') //redirects home if signed in
+            }
           });
         }
       });

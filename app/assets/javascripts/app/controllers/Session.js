@@ -2,27 +2,24 @@ angular
   .module('app')
   .controller('Session', Session);
 
-function Session($scope, Auth) {
+function Session($scope, $state, Auth) {
   var ctrl = this;
-
-  ctrl.signedIn = Auth.isAuthenticated;
-  ctrl.logout = Auth.logout;
 
   ctrl.login = function() {
     Auth.login(ctrl.user).then(function(resp) {
+      $state.go('home');
+    }, function(error) {
       debugger;
     });
   };
 
-  $scope.$on('devise:new-registration', function(e, user) {
-    $scope.user = user;
-  });
+  ctrl.logout = function() {
+    debugger;
+    Auth.logout(ctrl.user).then(function(resp) {
+      $state.go('home');
+    }, function(error){
+      debugger;
+    });
+  };
 
-  $scope.$on('devise:login', function(e, user) {
-    $scope.user = user;
-  });
-
-  $scope.$on('devise:logout', function(e, user) {
-    $scope.user = {};
-  });
 };
