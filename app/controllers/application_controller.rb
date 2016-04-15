@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 private
 
   def set_csrf_cookie_for_ng
+    # form_authenticity_token sets a random string for the XSRF-TOKEN if protection is needed
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end
 

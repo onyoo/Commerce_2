@@ -1,11 +1,15 @@
-module API
-  module v1
+module Api
+  module V1
     class CartsController < ApplicationController
 
       def show
-        carts = Cart.where(user_id: params[:id])
-        binding.pry
-        respond_with carts
+        cart = Cart.find(params[:id])
+        render json: cart.products
+      end
+
+      def index
+        carts = Cart.all
+        render json: carts
       end
 
     end

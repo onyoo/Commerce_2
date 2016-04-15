@@ -18,6 +18,11 @@ angular
             }
           });
         }
+      })
+      .state('home.carts', {
+        url: 'carts',
+        templateUrl: 'app/templates/carts.html',
+        controller: 'CartsCtrl as carts'
       });
     $urlRouterProvider.otherwise('/');
   });
