@@ -2,9 +2,12 @@ angular
   .module('app')
   .controller('Home', Home);
 
-function Home($scope, Auth) {
+function Home($scope, Auth, ProductService) {
+  var ctrl = this;
 
-  this.logout = Auth.logout; // logsout the user via DELETE request
+  // ctrl.products = ProductService.query();
+
+  ctrl.logout = Auth.logout; // logsout the user via DELETE request
 
   Auth.currentUser()
     .then(function(user) {
@@ -23,5 +26,6 @@ function Home($scope, Auth) {
   $scope.$on('devise:logout', function(e, user) {
     $scope.user = {};
   });
+
 
 };

@@ -1,8 +1,8 @@
 angular
   .module('app')
-  .controller('Product', Product);
+  .controller('Index', Index);
 
-function Product(ProductService) {
+function Index(ProductService) {
   var ctrl = this;
 
   ctrl.products = ProductService.query();

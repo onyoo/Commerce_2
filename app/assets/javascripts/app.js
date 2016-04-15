@@ -5,7 +5,8 @@ angular
       .state('home', {
         url: '/',
         templateUrl: 'app/templates/home.html',
-        controller: 'Home as home'
+        controller: 'Home as home',
+        abstract: true
       })
       .state('home.login', {
         url: 'login',
@@ -14,7 +15,7 @@ angular
         onEnter: function(Auth, $state) {
           Auth.currentUser().then(function(resp) { // checks if user has already been logged-in returns user obj if called
             if(resp.id!==undefined && resp.email!== undefined){
-              $state.go('home') //redirects home if signed in
+              $state.go('home.index') //redirects home if signed in
             }
           });
         }
@@ -23,6 +24,11 @@ angular
         url: 'carts',
         templateUrl: 'app/templates/carts.html',
         controller: 'CartsCtrl as carts'
+      })
+      .state('home.index', {
+        url: 'index',
+        templateUrl: 'app/templates/index.html',
+        controller: 'Index as index'
       });
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/index');
   });

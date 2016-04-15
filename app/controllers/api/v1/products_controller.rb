@@ -3,7 +3,8 @@ module Api
     class ProductsController < ApplicationController
 
       def index
-        binding.pry
+        product = Product.all
+        render json: product
       end
 
     end

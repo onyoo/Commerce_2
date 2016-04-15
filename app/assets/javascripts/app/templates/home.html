@@ -1,5 +1,10 @@
+<br><br>
 <div>
-  <span><a ui-sref='home'>Home</a></span>
+  Welcome {{user.name}}
+</div>
+
+<div>
+  <span><a ui-sref='home.index'>Home</a></span>
   <span><a ui-sref='home.carts'>Carts</a></span>
 
   <span ng-show='user.id'><a ng-click='home.logout()'>Logout</a></span>
