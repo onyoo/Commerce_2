@@ -2,9 +2,9 @@ angular
   .module('app')
   .controller('Product', Product);
 
-function Product(ProductService) {
+function Product(ProductService, $stateParams) {
   var ctrl = this;
 
-  ctrl.products = ProductService.query();
+  ctrl.product = ProductService.get({name: $stateParams.name, id: $stateParams.id});
 
 };

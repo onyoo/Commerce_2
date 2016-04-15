@@ -1,7 +1,7 @@
 Welcome to the index page!
 
 <ul ng-repeat='product in index.products'>
-  <p>{{product.name}}</p>
+  <p><a ui-sref='home.product({name: product.name, id: product.id})'>{{product.name}}</a></p>
   <p>{{product.price | currency}}</p>
   <p>Only {{product.inventory}} left!</p>
 </ul>

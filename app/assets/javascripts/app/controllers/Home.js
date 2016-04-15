@@ -5,8 +5,6 @@ angular
 function Home($scope, Auth, ProductService) {
   var ctrl = this;
 
-  // ctrl.products = ProductService.query();
-
   ctrl.logout = Auth.logout; // logsout the user via DELETE request
 
   Auth.currentUser()

@@ -29,6 +29,11 @@ angular
         url: 'index',
         templateUrl: 'app/templates/index.html',
         controller: 'Index as index'
+      })
+      .state('home.product', {
+        url: ':name/:id',
+        templateUrl: 'app/templates/product.html',
+        controller: 'Product as product'
       });
     $urlRouterProvider.otherwise('/index');
   });
