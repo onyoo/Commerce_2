@@ -2,24 +2,6 @@ Welcome to the index page!
 
 <br><br><br>
 
-<div id='filters' ng-init='min = 0; max= 10000'>
-  <p>Search Products:
-      <input
-      type="text"
-      ng-model='search'>
-  </p>
-  <p> Min: $
-      <input
-      type="number"
-      ng-model='min'>
-      Max: $
-      <input
-      type="number"
-      ng-model='max'>
-  </p>
-  <button ng-click="sort = '-price'; reverse = !reverse">Reverse Price Order</button>
-</div>
+  <filter-bar products='index.products'></filter-bar>
+
 <br><br>
-<ul ng-repeat='product in index.products | filter:search | priceFilter:min:max | orderBy:sort:reverse''>
-  <index-item product='product'></index-item>
-</ul>

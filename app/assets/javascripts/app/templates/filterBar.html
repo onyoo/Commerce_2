@@ -1,0 +1,15 @@
+
+<div id="filters" ng-init="$ctrl.min = 0; $ctrl.max= 10000">
+  <p>Search Products:
+    <input type="text" ng-model="$ctrl.search" >
+  </p>
+  <p>
+    Min: $<input type="number" ng-model="$ctrl.min">
+    Max: $<input type="number" ng-model="$ctrl.max">
+  </p>
+  <button ng-click="sort = '-price'; reverse = !reverse">Reverse Price Order</button>
+</div>
+
+<ul ng-repeat='product in $ctrl.products | filter:$ctrl.search | priceFilter:$ctrl.min:$ctrl.max | orderBy:sort:reverse'>
+  <index-item product='product'></index-item>
+</ul>
