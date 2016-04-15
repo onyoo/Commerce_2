@@ -1,12 +1,15 @@
 angular
   .module('app', ['ui.router', 'templates', 'ngResource', 'Devise'])
   .config(function($stateProvider, $urlRouterProvider) {
+
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'app/templates/home.html',
         controller: 'Home as home',
         abstract: true
+        // ,
+        // redirectTo: 'home.index'
       })
       .state('home.login', {
         url: 'login',
@@ -15,7 +18,7 @@ angular
         onEnter: function(Auth, $state) {
           Auth.currentUser().then(function(resp) { // checks if user has already been logged-in returns user obj if called
             if(resp.id!==undefined && resp.email!== undefined){
-              $state.go('home.index') //redirects home if signed in
+              $state.go('home.index') //redirects index if signed in
             }
           });
         }

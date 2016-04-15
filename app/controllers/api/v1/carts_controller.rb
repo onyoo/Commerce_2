@@ -12,6 +12,10 @@ module Api
         render json: carts
       end
 
+      def create
+        render json: Cart.create(user_id: current_user.id)
+      end
+
     end
   end
 end

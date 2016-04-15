@@ -1,6 +1,7 @@
 This is the carts page
 <br><br>
 Carts:
-<div ng-repeat='cart in carts.carts'>
+<new-cart controller='carts'></new-cart>
+<div ng-repeat='cart in carts.carts track by cart.id'>
   <cart cart='cart'></cart>
 </div>
