@@ -1,6 +1,6 @@
 user = User.create(name: 'Test', email: 'tim@cambridge.ac.uk', password: 'greyhound')
 
-dog_toy = Product.create(name: 'machanical rabbit', price: 1000, inventory: 49)
+dog_toy = Product.create(name: 'mechanical rabbit', price: 1000, inventory: 49)
 dog_bone = Product.create(name: 'dog bone', price: 10, inventory: 50)
 tennis_ball = Product.create(name: 'tennis ball', price: 1, inventory: 49)
 dog_treats = Product.create(name: 'dog treats', price: 5, inventory: 50)
