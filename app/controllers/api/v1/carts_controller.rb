@@ -4,7 +4,7 @@ module Api
 
       def show
         cart = Cart.find(params[:id])
-        render json: cart.products
+        render json: [cart.products, cart.line_items]
       end
 
       def index
@@ -14,6 +14,13 @@ module Api
 
       def create
         render json: Cart.create(user_id: current_user.id)
+      end
+
+      def update
+        cart = Cart.find(params[:id])
+        product = Product.find(params[:product][:id])
+        cart.add_product(product)
+        render json: cart
       end
 
     end

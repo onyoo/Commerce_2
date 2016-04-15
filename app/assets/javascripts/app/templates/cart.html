@@ -1,7 +1,11 @@
 cart #{{cart.cart.id}}
-<div ng-repeat='product in cart.content'>
-  <p>{{product.name}}</p>
-  <p>Price: ${{product.price}}</p>
-  <p>Only {{product.inventory}} left!</p>
+<br><br>
+
+<div ng-repeat='product in cart.products | cartQuantity:cart.lineItems track by $index'>
+  <div ng-show='product.name'>
+    <p>{{product.name}}</p>
+    <p>Price: {{product.price | currency}}</p>
+    <p>Quantity: {{product.quantity}}</p>
+  </div>
   <br>
 </div>

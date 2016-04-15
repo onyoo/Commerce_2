@@ -6,7 +6,8 @@ var IndexItem = {
       '</a>',
     '</p>',
     '<p>{{indexItem.product.price | currency}}</p>',
-    '<p>Only {{indexItem.product.inventory}} left!</p><br/>'
+    '<p>Only {{indexItem.product.inventory}} left!</p><br/>',
+    '<add-to-cart product="indexItem.product"></add-to-cart>'
   ].join(''),
   bindings: {
     product: '='

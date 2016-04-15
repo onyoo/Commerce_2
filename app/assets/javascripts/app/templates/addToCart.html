@@ -1,0 +1,14 @@
+<button ng-init='chooseCart=false' ng-click="chooseCart = !chooseCart">Add To Cart</button>
+
+<div ng-show='chooseCart'>
+  <p>Which cart would you like to add to?</p>
+    <div ng-show='addToCart.carts.length > 0'>
+      <div ng-repeat='cart in addToCart.carts'>
+        <input type="checkbox" ng-model='addToCart.active' ng-change='addToCart.add(cart);'>
+        <span>ID#{{cart.id}}</span> -- <span>Last Modified:{{cart.updated_at | date:short}}</span>
+      </div>
+    </div>
+    <div ng-show='addToCart.carts.length === 0'>
+      <new-cart controller='product'></new-cart>
+    </div>
+</div>

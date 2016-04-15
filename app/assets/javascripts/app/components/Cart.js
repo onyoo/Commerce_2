@@ -8,7 +8,10 @@ var Cart = {
 
     var ctrl = this;
 
-    this.content = Cart.query({id: ctrl.cart.id});
+    this.content = Cart.query({id: ctrl.cart.id}).$promise.then(function(resp) {
+      ctrl.products = resp[0];
+      ctrl.lineItems = resp[1];
+    });
   },
   controllerAs: 'cart'
 }
