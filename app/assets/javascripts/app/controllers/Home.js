@@ -2,7 +2,7 @@ angular
   .module('app')
   .controller('Home', Home);
 
-function Home($scope, Auth, ProductService) {
+function Home($scope, Auth, ProductService, $cookies) {
   var ctrl = this;
 
   ctrl.logout = Auth.logout; // logsout the user via DELETE request
@@ -10,6 +10,7 @@ function Home($scope, Auth, ProductService) {
   Auth.currentUser()
     .then(function(user) {
       $scope.user = user;
+      $cookies.put('user_id', user.id);
     });
 
   // listen for devise events

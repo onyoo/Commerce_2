@@ -4,5 +4,6 @@
 //= require angular-resource
 //= require angulardevise
 //= require ng-file-upload
+//= require angular-cookies
 
 //= require_tree .
