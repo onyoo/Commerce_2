@@ -8,7 +8,7 @@ module Api
       end
 
       def index
-        carts = Cart.where(user_id: params[:user_id])
+        carts = Cart.where(user_id: current_user.id)
         render json: carts
       end
 
@@ -18,8 +18,7 @@ module Api
 
       def update
         cart = Cart.find(params[:id])
-        product = Product.find(params[:product][:id])
-        cart.add_product(product)
+        cart.add_product(params)
         render json: cart
       end
 

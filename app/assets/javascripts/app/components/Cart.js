@@ -12,6 +12,7 @@ var Cart = {
       ctrl.products = resp[0];
       ctrl.lineItems = resp[1];
     });
+
   },
   controllerAs: 'cart'
 }
