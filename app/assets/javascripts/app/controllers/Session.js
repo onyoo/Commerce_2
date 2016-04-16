@@ -9,16 +9,7 @@ function Session($scope, $state, Auth) {
     Auth.login(ctrl.user).then(function(resp) {
       $state.go('home.index');
     }, function(error) {
-      debugger;
-    });
-  };
-
-  ctrl.logout = function() {
-    debugger;
-    Auth.logout(ctrl.user).then(function(resp) {
-      $state.go('home.index');
-    }, function(error){
-      debugger;
+      console.log(error);
     });
   };
 

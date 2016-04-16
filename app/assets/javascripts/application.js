@@ -3,5 +3,6 @@
 //= require angular-rails-templates
 //= require angular-resource
 //= require angulardevise
+//= require ng-file-upload
 
 //= require_tree .

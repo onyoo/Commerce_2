@@ -1,8 +1,12 @@
 
 <br><br>
-<img src="product.product.image_url" alt="{{product.product.name}} image">
+<img ng-src="{{product.product.image_url}}" alt="{{product.product.name}} image">
 
 <h1>{{product.product.name}}</h1>
 <h3>{{product.product.price | currency}}</h3>
 <p>Only {{product.product.inventory}} left!</p>
 <add-to-cart product='product.product'></add-to-cart>
+
+<button type="file" ngf-select="product.uploadImage($file, $invalidFiles, product.product.id)"
+          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+      Select File</button>

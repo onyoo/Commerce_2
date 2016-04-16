@@ -1,6 +1,7 @@
 var IndexItem = {
   template: [
     '<p>',
+    '<img ng-src="{{indexItem.product.image_url}}" alt="{{indexItem.product.name}} image">',
       '<a ui-sref="home.product({name: indexItem.product.name, id: indexItem.product.id})">',
       '{{indexItem.product.name}}',
       '</a>',

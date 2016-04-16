@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ui.router', 'templates', 'ngResource', 'Devise'])
+  .module('app', ['ui.router', 'templates', 'ngResource', 'Devise', 'ngFileUpload'])
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider

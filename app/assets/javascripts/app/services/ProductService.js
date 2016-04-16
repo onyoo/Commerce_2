@@ -8,6 +8,7 @@ function ProductService($resource) {
 
   var product = $resource(host + '/products/:id',{id: '@product'}, {
             query: {method: 'GET', isArray: true},
+            patch: {method: 'PATCH'},
             create: {method: 'POST'}
           });
 
