@@ -8,8 +8,6 @@ angular
         templateUrl: 'app/templates/home.html',
         controller: 'Home as home',
         abstract: true
-        // ,
-        // redirectTo: 'home.index'
       })
       .state('home.login', {
         url: 'login',

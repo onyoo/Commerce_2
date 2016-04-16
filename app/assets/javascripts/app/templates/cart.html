@@ -1,11 +1,13 @@
 cart #{{cart.cart.id}}
-<br><br>
 
-<div ng-repeat='product in cart.products | cartQuantity:cart.lineItems track by $index'>
+<div ng-repeat='product in cart.products | cartQuantity:cart.lineItems:cart track by $index'>
+  <!-- | totalCalc -->
   <div ng-show='product.name'>
+    <br>
     <p>{{product.name}}</p>
-    <p>Price: {{product.price | currency}}</p>
-    <p>Quantity: {{product.quantity}}</p>
+    <p>{{product.price | currency}} x {{product.quantity}}</p>
   </div>
-  <br>
 </div>
+
+total: {{cart.runningTotal | currency}}
+<br><br><br>
