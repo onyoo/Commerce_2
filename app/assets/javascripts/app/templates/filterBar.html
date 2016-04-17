@@ -10,6 +10,8 @@
   <button ng-click="sort = '-price'; reverse = !reverse" class='btn'>Reverse Price Order</button>
 </div>
 
-<ul ng-repeat='product in $ctrl.products | filter:$ctrl.search | priceFilter:$ctrl.min:$ctrl.max | orderBy:sort:reverse'>
-  <index-item product='product'></index-item>
-</ul>
+<div class='product_index_div'>
+  <ul ng-repeat='product in $ctrl.products | filter:$ctrl.search | priceFilter:$ctrl.min:$ctrl.max | orderBy:sort:reverse'>
+    <index-item product='product'></index-item>
+  </ul>
+</div>

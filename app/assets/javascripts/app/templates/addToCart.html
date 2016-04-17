@@ -1,11 +1,11 @@
 <button ng-init='chooseCart=false' ng-click="chooseCart = !chooseCart" class='btn'>Add To Cart</button>
 
 <div ng-show='chooseCart'>
-  <p>Which cart would you like to add to?</p>
+  <p>Choose from your carts:</p>
     <div ng-show='addToCart.carts.length > 0'>
       <div ng-repeat='cart in addToCart.carts'>
         <input type="checkbox" ng-model='cart.active'>
-        <span>ID#{{cart.id}}</span> -- <span>Last Modified:{{cart.updated_at | date:short}}</span>
+        <span>ID#{{cart.id}}</span> - <span>Modified: {{cart.updated_at | date:short}}</span><br>
         <change-quantity ng-show='cart.active' product="addToCart.product" cart="cart"></change-quantity>
       </div>
     </div>

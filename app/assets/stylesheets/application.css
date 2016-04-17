@@ -42,9 +42,20 @@
 }
 
 .index_prod_desc {
-  padding-right: 2em;
+  padding-right: 5em;
   position: relative;
   left: 35%;
   bottom: 11em;
   text-align: center;
+}
+
+.cart_box {
+  background: rgb(254,254,254);
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(254,254,254,1) 40%, rgba(219,219,219,1) 97%, rgba(226,226,226,1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(254,254,254,1) 40%,rgba(219,219,219,1) 97%,rgba(226,226,226,1) 100%);
+  background: radial-gradient(ellipse at center,  rgba(254,254,254,1) 40%,rgba(219,219,219,1) 97%,rgba(226,226,226,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#e2e2e2',GradientType=1 );
+
+  border: 1px solid #E2E2E2;
+  margin: 2em;
 }

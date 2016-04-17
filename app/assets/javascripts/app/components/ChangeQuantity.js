@@ -3,8 +3,8 @@ var ChangeQuantity = {
     "<button ng-show='!changeQ.product.show' ng-init='changeQ.product.show = false' class='btn'",
             "ng-click='changeQ.product.show = true'>Change Quantity</button>",
     "<form ng-show='changeQ.product.show' ng-submit='changeQ.edit(changeQ.product, changeQ.quantity); changeQ.product.show=false'>",
-      "How many would you like?",
-      "<input type='number' ng-model='changeQ.quantity' min='0' max='{{changeQ.product.inventory}}'>",
+      "Quantity: ",
+      "<input type='number' ng-model='changeQ.quantity' min='0' max='{{changeQ.product.inventory}}'><br>",
       "<input type='submit'>",
     "</form>"
   ].join(''),
