@@ -27,4 +27,11 @@ class Cart < ActiveRecord::Base
     line_item.save
     product.save
   end
+
+  def self.checkout(id, user)
+    cart = self.find(id)
+    order = Order.create(user_id: user.id, cart_id: cart.id)
+    cart.destroy
+  end
+
 end

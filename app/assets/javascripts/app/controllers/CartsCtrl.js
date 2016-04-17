@@ -1,8 +1,5 @@
-angular
-  .module('app')
-  .controller('CartsCtrl', CartsCtrl);
 
-function CartsCtrl(Cart) {
+function CartsCtrl(Cart, $http) {
   var ctrl = this;
 
   ctrl.carts = Cart.query();
@@ -18,4 +15,20 @@ function CartsCtrl(Cart) {
       };
     };
   };
+
+  ctrl.checkout = function(id) {
+    var host = 'http://localhost:3000/api/v1'
+    $http.post(host + '/carts/' + id + '/checkout').then(function() {
+      for(var i in ctrl.carts) {
+        if(ctrl.carts[i].id === id) {
+          ctrl.carts.splice(i,1);
+        };
+      };
+    });
+  };
+
 };
+
+angular
+.module('app')
+.controller('CartsCtrl', CartsCtrl);

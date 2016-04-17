@@ -7,14 +7,15 @@
       <a ui-sref="home.product({name: product.name, id: product.id})">
         <img class='product_thumbnail' ng-src="{{product.image_url}}" alt="{{product.name}} image">
       </a>
-      <div class='index_prod_desc'>
+      <div class='index_prod_half'>
         <p>{{product.name}}</p>
         <p>{{product.price | currency}} x {{product.quantity}}</p>
         <change-quantity product="product" cart="cart"></change-quantity>
       </div>
     </div>
   </div>
-  <div class='centered_description'>
+  <div class='centered_description cart_bottom'>
+    <a ui-sref='home.index'><button class='btn'>Get More!</button></a>
     <h3>total: {{cart.runningTotal | currency}}</h3>
   </div>
 </div>

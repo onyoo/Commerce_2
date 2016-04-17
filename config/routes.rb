@@ -13,4 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'api/v1/carts/:id/checkout' => 'api/v1/carts#checkout'
+
 end

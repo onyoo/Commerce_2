@@ -27,6 +27,11 @@ module Api
         render nothing: true, status: 202
       end
 
+      def checkout
+        Cart.checkout(params[:id], current_user)
+        render nothing: true, status: 202
+      end
+
     end
   end
 end

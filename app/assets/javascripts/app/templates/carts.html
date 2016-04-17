@@ -4,6 +4,8 @@
 </div>
 <div ng-repeat='cart in carts.carts track by cart.id'>
   <cart cart='cart'></cart>
-  <button ng-click='carts.delete(cart.id)'>Delete Cart</button>
-  <button>Check-Out</button>
+  <div class='cart_bottom_buttons'>
+    <button ng-click='carts.delete(cart.id)'>Delete Cart</button>
+    <button ng-click='carts.checkout(cart.id)'>Check-Out</button>
+  </div>
 </div>
