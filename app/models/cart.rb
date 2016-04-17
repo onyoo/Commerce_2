@@ -10,16 +10,21 @@ class Cart < ActiveRecord::Base
       product = Product.find(params[:product][:id])
     end
     if line_item = self.line_items.detect{|li| li.product_id == product.id}
-      previous_quantity = line_item.quantity
-      line_item.quantity = params[:quantity]
-      product.inventory + previous_quantity - line_item.quantity
-      line_item.save
-      product.save
+      update_cart_item(line_item, params[:quantity], product)
     else
       self.products << product
-      self.line_items.where()
+      line_item = self.line_items.where(product_id: product.id).first
+      update_cart_item(line_item, params[:quantity], product)
       self.save
     end
     product
+  end
+
+  def update_cart_item(line_item, quantity, product)
+    product.inventory += line_item.quantity
+    line_item.quantity = quantity.to_i
+    product.inventory -= quantity.to_i
+    line_item.save
+    product.save
   end
 end

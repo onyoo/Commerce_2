@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160416080955) do
   add_index "category_items", ["product_id"], name: "index_category_items_on_product_id"
 
   create_table "line_items", force: :cascade do |t|
-    t.integer  "quantity",   default: 1
+    t.integer  "quantity",   default: 0
     t.integer  "product_id"
     t.integer  "cart_id"
     t.datetime "created_at",             null: false

@@ -4,7 +4,7 @@ var ChangeQuantity = {
             "ng-click='changeQ.product.show = true'>Change Quantity</button>",
     "<form ng-show='changeQ.product.show' ng-submit='changeQ.edit(changeQ.product, changeQ.quantity); changeQ.product.show=false'>",
       "How many would you like?",
-      "<input type='number' ng-model='changeQ.quantity'>",
+      "<input type='number' ng-model='changeQ.quantity' min='0' max='{{changeQ.product.inventory}}'>",
       "<input type='submit'>",
     "</form>"
   ].join(''),
@@ -25,14 +25,14 @@ var ChangeQuantity = {
 
     ctrl.sendUpdate = function(quantity, product, kart, lineItems) {
       kart.$update({id: kart.id, 'product_id': product.id, 'quantity': quantity}).then(function() {
-        if(lineItems){    // should be cart
+        if(lineItems){    // cart view
           for(i in lineItems) {
             if(lineItems[i].product_id === product.id) {
               lineItems[i].quantity = quantity;
             };
           };
           quantity = 0;
-        }else{           // should be index views
+        }else{           // index views
           product.inventory -= quantity;
         }
       });
