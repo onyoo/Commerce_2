@@ -22,6 +22,11 @@ module Api
         render json: cart
       end
 
+      def destroy
+        Cart.destroy(params[:id])
+        render nothing: true, status: 202
+      end
+
     end
   end
 end

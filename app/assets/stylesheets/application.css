@@ -49,6 +49,15 @@
   text-align: center;
 }
 
+.centered_description {
+  text-align: center;
+}
+
+IMG.centered_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
 .cart_box {
   background: rgb(254,254,254);
   background: -moz-radial-gradient(center, ellipse cover,  rgba(254,254,254,1) 40%, rgba(219,219,219,1) 97%, rgba(226,226,226,1) 100%);
@@ -57,5 +66,11 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#e2e2e2',GradientType=1 );
 
   border: 1px solid #E2E2E2;
+  padding: 2em;
   margin: 2em;
+}
+
+#new_cart_btn {
+  width: 100%;
+  background-color: lightgreen;
 }

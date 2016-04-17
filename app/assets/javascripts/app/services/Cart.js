@@ -9,7 +9,8 @@ function Cart($resource) {
   var cart = $resource(host + '/carts/:id',{id: '@cart'}, {
             query: { method: 'GET', isArray: true },
             create: { method: 'POST' },
-            update: { method: 'PUT' }
+            update: { method: 'PUT' },
+            delete: { method: 'DELETE' }
           });
 
   return cart;

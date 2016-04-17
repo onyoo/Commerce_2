@@ -1,5 +1,5 @@
 var NewCart = {
-  template: "<button ng-click='newCart.new()' class='btn'>New Cart</button>", // ng-show='!cart.cOMessage'
+  template: "<button ng-click='newCart.new()' class='btn' id='new_cart_btn'>New Cart</button>", // ng-show='!cart.cOMessage'
   bindings: {
     controller: '='
   },
@@ -10,7 +10,7 @@ var NewCart = {
 
     ctrl.new = function() {
       ctrl.cart.$save().then(function(resp) {
-        ctrl.controller.carts.push(resp.toJSON());
+        ctrl.controller.carts.push(resp);
       });
     };
 

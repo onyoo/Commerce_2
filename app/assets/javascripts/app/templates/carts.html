@@ -1,7 +1,9 @@
-This is the carts page
-<br><br>
-Carts:
-<new-cart controller='carts'></new-cart>
+<h2>Your Carts</h2>
+<div class='centered_description'>
+  <new-cart controller='carts'></new-cart>
+</div>
 <div ng-repeat='cart in carts.carts track by cart.id'>
   <cart cart='cart'></cart>
+  <button ng-click='carts.delete(cart.id)'>Delete Cart</button>
+  <button>Check-Out</button>
 </div>
