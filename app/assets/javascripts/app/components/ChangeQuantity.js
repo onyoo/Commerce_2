@@ -16,32 +16,27 @@ var ChangeQuantity = {
     var ctrl = this;
 
     ctrl.edit = function(product, quantity) {
-      if (ctrl.cart.lineItems !== undefined) {
-        // cart view
-        // ctrl.sendUpdate( quantity, ctrl.cart.cart, cart.lineItems );
-        var cart = ctrl.cart;
-        cart.cart.$update({id: cart.cart.id, 'product_id': product.id, 'quantity': quantity}).then(function() {
-          var items = cart.lineItems;
-          for(i in items) {
-            if(cart.lineItems[i].product_id === product.id) {
-              cart.lineItems[i].quantity = quantity;
-            };
-          };
-          ctrl.quantity = 0;
-        });
-      }else{
-        // index views
-        var cart = ctrl.cart;
-        cart.$update({id: cart.id, 'product_id': product.id, 'quantity': quantity}).then(function() {
-          ctrl.product.inventory -= ctrl.quantity;
-        });
+      if (ctrl.cart.lineItems !== undefined) {  // cart
+        ctrl.sendUpdate( quantity, product, ctrl.cart.cart, ctrl.cart.lineItems );
+      }else{  // index views
+        ctrl.sendUpdate( quantity, product, ctrl.cart );
       };
-
     };
 
-    // ctrl.sendUpdate = function(quantity, cart, lineItems) {
-    //
-    // };
+    ctrl.sendUpdate = function(quantity, product, kart, lineItems) {
+      kart.$update({id: kart.id, 'product_id': product.id, 'quantity': quantity}).then(function() {
+        if(lineItems){    // should be cart
+          for(i in lineItems) {
+            if(lineItems[i].product_id === product.id) {
+              lineItems[i].quantity = quantity;
+            };
+          };
+          quantity = 0;
+        }else{           // should be index views
+          product.inventory -= quantity;
+        }
+      });
+    };
   },
   controllerAs: 'changeQ'
 }
