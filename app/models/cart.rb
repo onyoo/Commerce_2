@@ -17,6 +17,7 @@ class Cart < ActiveRecord::Base
       product.save
     else
       self.products << product
+      self.line_items.where()
       self.save
     end
     product

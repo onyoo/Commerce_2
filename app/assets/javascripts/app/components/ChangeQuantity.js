@@ -16,17 +16,32 @@ var ChangeQuantity = {
     var ctrl = this;
 
     ctrl.edit = function(product, quantity) {
-      debugger;
-      var cart = (ctrl.cart.cart || ctrl.cart )
-      cart.$update({id: cart.id, 'product_id': product.id, 'quantity': quantity}).then(function() {
-        var items = cart.lineItems;
-        for(i in items) {
-          cart.lineItems[i].quantity = quantity;
-        };
-        ctrl.quantity = 0;
-      });
+      if (ctrl.cart.lineItems !== undefined) {
+        // cart view
+        // ctrl.sendUpdate( quantity, ctrl.cart.cart, cart.lineItems );
+        var cart = ctrl.cart;
+        cart.cart.$update({id: cart.cart.id, 'product_id': product.id, 'quantity': quantity}).then(function() {
+          var items = cart.lineItems;
+          for(i in items) {
+            if(cart.lineItems[i].product_id === product.id) {
+              cart.lineItems[i].quantity = quantity;
+            };
+          };
+          ctrl.quantity = 0;
+        });
+      }else{
+        // index views
+        var cart = ctrl.cart;
+        cart.$update({id: cart.id, 'product_id': product.id, 'quantity': quantity}).then(function() {
+          ctrl.product.inventory -= ctrl.quantity;
+        });
+      };
+
     };
 
+    // ctrl.sendUpdate = function(quantity, cart, lineItems) {
+    //
+    // };
   },
   controllerAs: 'changeQ'
 }
