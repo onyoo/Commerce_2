@@ -1,6 +1,6 @@
 var ChangeQuantity = {
   template: [
-    "<button ng-show='!changeQ.product.show' ng-init='changeQ.product.show = false'",
+    "<button ng-show='!changeQ.product.show' ng-init='changeQ.product.show = false' class='btn'",
             "ng-click='changeQ.product.show = true'>Change Quantity</button>",
     "<form ng-show='changeQ.product.show' ng-submit='changeQ.edit(changeQ.product, changeQ.quantity); changeQ.product.show=false'>",
       "How many would you like?",

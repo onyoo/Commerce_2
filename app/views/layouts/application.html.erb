@@ -8,11 +8,6 @@
 </head>
 <body ng-app='app'>
 <br>
-Welcome to the revamped e-commerce.
-
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-<% end %>
 
 <ui-view></ui-view>
 

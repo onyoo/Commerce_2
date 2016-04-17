@@ -1,5 +1,5 @@
 var NewCart = {
-  template: "<button ng-click='newCart.new()' >New Cart</button>", // ng-show='!cart.cOMessage'
+  template: "<button ng-click='newCart.new()' class='btn'>New Cart</button>", // ng-show='!cart.cOMessage'
   bindings: {
     controller: '='
   },

@@ -1,0 +1,14 @@
+<span>
+  <a ui-sref="home.product({name: indexItem.product.name, id: indexItem.product.id})">
+    <img class="product_thumbnail img-rounded img-responsive"
+        ng-src="{{indexItem.product.image_url}}"
+        alt="{{indexItem.product.name}} image">
+  </a>
+</span>
+
+<p class='index_prod_desc'>{{indexItem.product.name}}</p>
+<p class='index_prod_desc'>{{indexItem.product.price | currency}}</p>
+<p class='index_prod_desc'>Only {{indexItem.product.inventory}} left!</p><br/>
+<div class='index_prod_desc'>
+  <add-to-cart product="indexItem.product"></add-to-cart>
+</div>
