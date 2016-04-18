@@ -12,8 +12,9 @@
         <div class='index_prod_half'>
           <div class='index_prod_half'>
             <p>{{product.name}}</p>
-            <p>{{product.price | currency}} x {{product.quantity}}</p>
+            <p>{{product.price | currency}}</p>
             <change-quantity product="product" cart="cart"></change-quantity>
+            <button ng-click='cart.remove(product.id)'>Remove</button>
           </div>
         </div>
       </div>

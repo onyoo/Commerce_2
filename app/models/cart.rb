@@ -17,7 +17,14 @@ class Cart < ActiveRecord::Base
       update_cart_item(line_item, params[:quantity], product)
       self.save
     end
-    product
+  end
+
+  def remove_product(id)
+    product = Product.find(id)
+    number_deleted = self.line_items.find_by(product_id: id).quantity
+    self.products.delete(product)
+    product.inventory += number_deleted
+    product.save
   end
 
   def update_cart_item(line_item, quantity, product)

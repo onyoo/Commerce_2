@@ -18,7 +18,11 @@ module Api
 
       def update
         cart = Cart.find(params[:id])
-        product = cart.add_product(params)
+        if params[:remove_id]
+          cart.remove_product(params[:remove_id])
+        else
+          cart.add_product(params)
+        end
         render json: cart
       end
 

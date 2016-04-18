@@ -8,10 +8,21 @@ var Cart = {
 
     var ctrl = this;
 
-    this.content = Cart.query({id: ctrl.cart.id}).$promise.then(function(resp) {
+    ctrl.content = Cart.query({id: ctrl.cart.id}).$promise.then(function(resp) {
       ctrl.products = resp[0];
       ctrl.lineItems = resp[1];
     });
+
+    ctrl.remove = function(id) {
+      ctrl.cart.$update({'id': ctrl.cart.id, remove_id: id}).then(function() {
+        for(var i in ctrl.products) {
+          var product = ctrl.products[i];
+          if(product.id == id) {
+            delete ctrl.products[i];
+          };
+        };
+      });
+    };
 
   },
   controllerAs: 'cart'
