@@ -35,6 +35,11 @@ angular
         url: ':name/:id',
         templateUrl: 'app/templates/product.html',
         controller: 'Product as product'
+      })
+      .state('home.category', {
+        url: 'categories/:name/:id',
+        template: '<filter-bar products="category.products"></filter-bar>',
+        controller: 'Category as category'
       });
     $urlRouterProvider.otherwise('/index');
   });

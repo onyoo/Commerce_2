@@ -7,6 +7,11 @@ module Api
         render json: categories
       end
 
+      def show
+        products = Category.find(params[:id]).products
+        render json: products
+      end
+
     end
   end
 end

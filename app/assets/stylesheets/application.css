@@ -41,6 +41,13 @@
   text-align: center;
 }
 
+.category_tab {
+  background: lightgreen;
+  position: relative;
+  bottom: -.8em;
+  border: 1px solid black;
+}
+
 .index_prod_half {
   text-align: center;
   width: 49%;
@@ -104,6 +111,6 @@ ul {
   width: 40%;
   right: 9%;
   z-index: 10;
-  border-top: 1px solid #F8F1EA;
+  border-top: 1px solid black;
   background-color: #F0EAEC;
 }

@@ -1,10 +1,10 @@
 angular
   .module('app')
-  .factory('ProductService', ProductService);
+  .factory('productFactory', ProductFactory);
 
-function ProductService($resource) {
+function ProductFactory($resource) {
 
-  var host = 'http://localhost:3000/api/v1'
+  var host = 'http://localhost:3000/api/v1';
 
   var product = $resource(host + '/products/:id',{id: '@product'}, {
             query: {method: 'GET', isArray: true},

@@ -9,6 +9,10 @@
 
   <span ng-show='user.id'><a ng-click='home.logout()'>Logout</a></span>
   <span ng-show='!user.id'><a ui-sref='home.login'>Login</a></span>
+  <br>
+  <span ng-repeat='cat in home.categories' class='category_tab'>
+    <span class='category_name tab-pane'><a ui-sref='home.category(cat)'>{{cat.name}}</a></span>
+  </span>
 </div>
 <br><br><br>
 <ui-view></ui-view>

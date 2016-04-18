@@ -2,10 +2,10 @@ angular
   .module('app')
   .controller('Product', Product);
 
-function Product(ProductService, $stateParams, Upload) {
+function Product(productFactory, $stateParams, Upload) {
   var ctrl = this;
 
-  ctrl.product = ProductService.get({name: $stateParams.name, id: $stateParams.id});
+  ctrl.product = productFactory.get({name: $stateParams.name, id: $stateParams.id});
 
   ctrl.uploadImage = function(image, invalid, id) {
     Upload.upload({

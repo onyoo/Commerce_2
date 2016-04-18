@@ -2,9 +2,9 @@ angular
   .module('app')
   .controller('Index', Index);
 
-function Index(ProductService) {
+function Index(productFactory) {
   var ctrl = this;
 
-  ctrl.products = ProductService.query();
+  ctrl.products = productFactory.query();
 
 };

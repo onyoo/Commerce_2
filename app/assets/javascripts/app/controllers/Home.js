@@ -1,9 +1,8 @@
-angular
-  .module('app')
-  .controller('Home', Home);
 
-function Home($scope, Auth, ProductService, $cookies) {
+function Home($scope, Auth, productFactory, categoryFactory, $cookies) {
   var ctrl = this;
+
+  ctrl.categories = categoryFactory.query();
 
   ctrl.logout = Auth.logout; // logsout the user via DELETE request
 
@@ -26,5 +25,9 @@ function Home($scope, Auth, ProductService, $cookies) {
     $scope.user = {};
   });
 
-
 };
+
+
+angular
+.module('app')
+.controller('Home', Home);
