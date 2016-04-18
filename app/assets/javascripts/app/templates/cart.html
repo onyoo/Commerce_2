@@ -3,14 +3,19 @@
 
   <div ng-repeat='product in cart.products | cartQuantity:cart.lineItems:cart track by $index'>
     <div ng-show='product.name'>
-      <br>
-      <a ui-sref="home.product({name: product.name, id: product.id})">
-        <img class='product_thumbnail' ng-src="{{product.image_url}}" alt="{{product.name}} image">
-      </a>
-      <div class='index_prod_half'>
-        <p>{{product.name}}</p>
-        <p>{{product.price | currency}} x {{product.quantity}}</p>
-        <change-quantity product="product" cart="cart"></change-quantity>
+      <div class='list_item'>
+        <div class='index_prod_half'>
+          <a ui-sref="home.product({name: product.name, id: product.id})">
+            <img class='product_thumbnail img-rounded img-responsive' ng-src="{{product.image_url}}" alt="{{product.name}} image">
+          </a>
+        </div>
+        <div class='index_prod_half'>
+          <div class='index_prod_half'>
+            <p>{{product.name}}</p>
+            <p>{{product.price | currency}} x {{product.quantity}}</p>
+            <change-quantity product="product" cart="cart"></change-quantity>
+          </div>
+        </div>
       </div>
     </div>
   </div>
