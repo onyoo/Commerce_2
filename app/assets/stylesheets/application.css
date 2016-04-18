@@ -79,8 +79,9 @@ IMG.centered_image {
 .list_item {
   padding: 4em;
   margin: 3em;
-  border: 1px solid black;
-  /*#F8F1EA*/
+  border: 1px solid #F8F1EA;
+  position:relative;
+  /* position:relative allows  .choose_cart to overflow*/
 }
 
 .cart_bottom {
@@ -95,4 +96,14 @@ IMG.centered_image {
 
 ul {
   padding: 0em;
+}
+
+.choose_cart {
+  position: absolute;
+  top: 15em;
+  width: 40%;
+  right: 9%;
+  z-index: 10;
+  border-top: 1px solid #F8F1EA;
+  background-color: #F0EAEC;
 }
