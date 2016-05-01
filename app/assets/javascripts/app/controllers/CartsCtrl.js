@@ -30,5 +30,5 @@ function CartsCtrl(Cart, $http) {
 };
 
 angular
-.module('app')
-.controller('CartsCtrl', CartsCtrl);
+  .module('app')
+  .controller('CartsCtrl', CartsCtrl);

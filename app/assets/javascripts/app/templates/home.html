@@ -4,6 +4,8 @@
     Welcome {{user.name}}
   </div>
 
+  <div ng-show="user.admin"> <a ui-sref="home.admin">Manage Products</a> </div>
+
   <span><a ui-sref='home.index'>Home</a></span>
   <span ng-show='user.id'><a ui-sref='home.carts'>Carts</a></span>
 

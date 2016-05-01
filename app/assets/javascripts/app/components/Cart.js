@@ -31,5 +31,5 @@ var Cart = {
 
 
 angular
-.module('app')
-.component('cart', Cart);
+  .module('app')
+  .component('cart', Cart);

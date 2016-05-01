@@ -29,5 +29,5 @@ function Home($scope, Auth, productFactory, categoryFactory, $cookies) {
 
 
 angular
-.module('app')
-.controller('Home', Home);
+  .module('app')
+  .controller('Home', Home);

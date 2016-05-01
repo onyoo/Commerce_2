@@ -40,6 +40,11 @@ angular
         url: 'categories/:name/:id',
         template: '<filter-bar products="category.products"></filter-bar>',
         controller: 'Category as category'
+      })
+      .state('home.admin', {
+        url: ('admin'),
+        templateUrl: 'app/templates/admin/admin.html',
+        controller: 'Admin as admin'
       });
     $urlRouterProvider.otherwise('/index');
   });

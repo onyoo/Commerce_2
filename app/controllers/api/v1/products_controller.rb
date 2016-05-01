@@ -15,12 +15,16 @@ module Api
       def update
         product = Product.find(params[:id])
         if params[:product_image]
-          product.product_image = params[:product_image]
-          product.save_url
+          product.save_image_url(params)
           render json: {url: product.image_url}
-        else
-          binding.pry
+        elsif product.update(product_params)
+          render json: product
         end
+      end
+
+    private
+      def product_params
+        params.require(:product).permit(:product_image, :name, :inventory, :price)
       end
 
     end

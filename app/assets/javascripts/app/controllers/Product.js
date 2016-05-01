@@ -1,22 +1,11 @@
-angular
-  .module('app')
-  .controller('Product', Product);
 
-function Product(productFactory, $stateParams, Upload) {
+function Product(productFactory, $stateParams) {
   var ctrl = this;
 
   ctrl.product = productFactory.get({name: $stateParams.name, id: $stateParams.id});
 
-  ctrl.uploadImage = function(image, invalid, id) {
-    Upload.upload({
-      url: '/api/v1/products/' + ctrl.product.id,
-      method: 'PATCH',
-      data: { 'product_image': image }
-    }).then(function(resp) {
-      ctrl.product.image_url = resp.data.url;
-    }, function(error) {
-      console.log(error);
-    });
-  };
-
 };
+
+angular
+  .module('app')
+  .controller('Product', Product);

@@ -1,6 +1,3 @@
-angular
-  .module('app')
-  .controller('Index', Index);
 
 function Index(productFactory) {
   var ctrl = this;
@@ -8,3 +5,7 @@ function Index(productFactory) {
   ctrl.products = productFactory.query();
 
 };
+
+angular
+.module('app')
+.controller('Index', Index);
