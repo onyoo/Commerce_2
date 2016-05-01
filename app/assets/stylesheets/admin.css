@@ -1,5 +1,5 @@
 .admin_edit {
-  background-color: lightgreen;
+  background-color: lightgrey;
 }
 
 .admin_image {
@@ -7,5 +7,21 @@
 }
 
 .admin_li {
+  margin-left: 20%;
+  margin-right: 20%;
   height: 20em;
+}
+
+#admin_product_list {
+  float: none;
+  margin: 0 auto;
+}
+
+.admin_input{
+  margin-left: 20%;
+  margin-right: 15%;
+}
+
+.input_image {
+  margin-left: 35%;
 }

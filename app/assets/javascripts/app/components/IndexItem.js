@@ -3,9 +3,6 @@ var IndexItem = {
   bindings: {
     product: '='
   },
-  controller: function() {
-    var ctrl = this;
-  },
   controllerAs: 'indexItem'
 }
 

@@ -1,6 +1,3 @@
-angular
-  .module('app')
-  .factory('categoryFactory', CategoryFactory);
 
 function CategoryFactory($resource) {
 
@@ -13,3 +10,8 @@ function CategoryFactory($resource) {
   return product;
 
 };
+
+
+angular
+.module('app')
+.factory('categoryFactory', CategoryFactory);

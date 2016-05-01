@@ -1,40 +1,59 @@
 <h2>Welcome Admin!</h2>
 
-<div id="filters" class='filter_bar' ng-init="min = 0; max= 10000">
+<div id="filters" class='filter_bar' ng-init="min = 0; max= 10000; addProduct = false">
   <p>
     <input type="text" ng-model="search" placeholder='Search Products'>
   </p>
   <p>
-    Min: $<input type="number" ng-model="$ctrl.min">
-    Max: $<input type="number" ng-model="$ctrl.max">
+    Min: $<input type="number" ng-model="min">
+    Max: $<input type="number" ng-model="max">
   </p>
   <button ng-click="sort = '-price'; reverse = !reverse" class='btn'>Reverse Price Order</button>
+  <button ng-click="addProduct = !addProduct" class='btn'>Add New Product</button>
 </div>
-
-<ul ng-repeat="product in admin.products | filter:search | priceFilter:min:max | orderBy:sort:reverse">
+  <add-product ng-show="addProduct"></add-product>
+<ul class="admin_product_list" ng-repeat="product in admin.products | filter:search | priceFilter:min:max | orderBy:sort:reverse">
   <li>
     <div class='admin_li'>
-      <p>ID:{{product.id}}</p>
-      <p>Name: {{product.name}}</p>
-      <p>Inventory: {{product.inventory}}</p>
-      <p>Price: {{product.price | currency}}</p>
-      <img ng-src="{{product.image_url}}" class="admin_image" alt="{{product.name}} image">
+      <div class="row">
+        <div class="admin_text">
+          <div class="col-xs-8">
+            <p>ID:{{product.id}}</p>
+            <p>Name: {{product.name}}</p>
+            <p>Inventory: {{product.inventory}}</p>
+            <p>Price: {{product.price | currency}}</p>
+          </div>
+        </div>
 
-      <div class="admin_edit col-sm-4">
+        <div class="col-xs-4">
+          <div class'admin_img_container'>
+            <img ng-src="{{product.image_url}}" class="admin_image" alt="{{product.name}} image">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="admin_edit ">
 
         <form ng-submit="admin.changeName(product.id, name)">
-          <p><input type="text" ng-model="name" placeholder="Name" class="col-sm-6">
-          <input type="submit" value="Change"></p>
+          <p class="row admin_input">
+            <input type="text" ng-model="name" placeholder="Name" class="col-xs-8">
+            <input type="submit" value="Change">
+          </p>
         </form>
 
         <form ng-submit="admin.changeInventory(product.id, inventory)">
-          <p><input type="number" ng-model="inventory" placeholder="Inventory" class="col-sm-6">
-          <input type="submit" value="Change"></p>
+          <p class="row admin_input">
+            <input type="number" ng-model="inventory" placeholder="Inventory" class="col-xs-8">
+            <input type="submit" value="Change">
+          </p>
         </form>
 
         <form ng-submit="admin.changePrice(product.id, price)">
-          <p><input type="number" ng-model="price" placeholder="Price" class="col-sm-6">
-          <input type="submit" value="Change"></p>
+          <p class="row admin_input">
+            <input type="number" ng-model="price" placeholder="Price" class="col-xs-8">
+            <input type="submit" value="Change">
+          </p>
         </form>
 
         <button type="file"

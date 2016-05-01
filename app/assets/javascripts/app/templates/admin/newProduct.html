@@ -1,0 +1,28 @@
+<div class="black_out">
+  <div class="light_box">
+    <form ng-submit="addProduct.submit()">
+
+      <input type="text" placeholder="Name" ng-model="form.name">
+      <input type="number" placeholder="Price" ng-model="form.price">
+      <input type="number" placeholder="Inventory" ng-model="form.inventory">
+      <div id="select_area">
+
+        <select name="categories"
+                ng-options="category.name for category in addProduct.categories"
+                ng-model="form.categories[addProduct.i]"
+                ng-change="insertSelection()"/>
+
+        <button type="file"
+                ngf-select="admin.uploadImage($file, $invalidFiles, product.id)"
+                accept="image/*"
+                ngf-max-height="1000"
+                ngf-max-size="1MB"
+                class='btn'>
+                Select Image File</button>
+
+      </div>
+
+      <input type="submit" value="Create">
+    </form>
+  </div>
+</div>
