@@ -10,4 +10,9 @@ class Product < ActiveRecord::Base
     self.image_url = self.product_image.url
     self.save
   end
+
+  def set_categories(categories)
+    categories.values.each{|cat| self.categories << Category.find_by(name: cat['name'])}
+    self.save
+  end
 end

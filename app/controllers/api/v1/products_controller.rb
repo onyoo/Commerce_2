@@ -4,6 +4,7 @@ module Api
 
       def create
         product = Product.create(product_params)
+        product.set_categories(params['product']['categories'])
         render json: product
       end
 

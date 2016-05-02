@@ -1,7 +1,5 @@
 var ChangeQuantity = {
   template: [
-    // "<button ng-show='!changeQ.product.show' ng-init='changeQ.product.show = false' class='btn'",
-    //         "ng-click='changeQ.product.show = true'>Change Quantity</button>",
     "<form  ng-submit='changeQ.edit(changeQ.product, changeQ.quantity); changeQ.product.show=false;changeQ.cart.active=false '>", // ng-show='changeQ.product.show'
       "Quantity: ",
       "<input type='number' ng-model='changeQ.quantity' value='{{changeQ.product.quantity}}' min='0' max='{{changeQ.product.inventory}}'><br>",
