@@ -11,7 +11,9 @@
   <button ng-click="sort = '-price'; reverse = !reverse" class='btn'>Reverse Price Order</button>
   <button ng-click="addProduct = !addProduct" class='btn'>Add New Product</button>
 </div>
-  <add-product ng-show="addProduct"></add-product>
+
+  <new-product ng-show="addProduct"></new-product>
+
 <ul class="admin_product_list" ng-repeat="product in admin.products | filter:search | priceFilter:min:max | orderBy:sort:reverse">
   <li>
     <div class='admin_li'>

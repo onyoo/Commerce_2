@@ -128,6 +128,9 @@ ul {
   top: 10em;
   left: 20%;
   right: 20%;
+  z-index: 1000;
+  text-align: center;
+  padding: 2em;
 }
 
 .black_out {

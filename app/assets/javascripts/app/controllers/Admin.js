@@ -53,6 +53,10 @@ function Admin(productFactory, Upload, $scope, productFactory) {
     });
   };
 
+  $scope.$on('newProduct', function (emitEvent, product) {
+    ctrl.products.push(product);
+  });
+
 };
 
 angular

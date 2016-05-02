@@ -2,6 +2,11 @@ module Api
   module V1
     class ProductsController < ApplicationController
 
+      def create
+        product = Product.create(product_params)
+        render json: product
+      end
+
       def index
         product = Product.all
         render json: product

@@ -1,24 +1,26 @@
-<div class="black_out">
-  <div class="light_box">
-    <form ng-submit="addProduct.submit()">
+<div class="black_out" ng-click="$parent.addProduct=false; addProduct.clearForm()">
+  <div class="light_box" ng-click="$event.stopPropagation()">
+    <form ng-submit="addProduct.submit(); $parent.addProduct=false">
+      <div id="new_product_form">
 
-      <input type="text" placeholder="Name" ng-model="form.name">
-      <input type="number" placeholder="Price" ng-model="form.price">
-      <input type="number" placeholder="Inventory" ng-model="form.inventory">
-      <div id="select_area">
+        <input type="text" placeholder="Name" ng-model="form.name"><br>
+        <input type="number" placeholder="Price" ng-model="form.price"><br>
+        <input type="number" placeholder="Inventory" ng-model="form.inventory"><br>
 
-        <select name="categories"
-                ng-options="category.name for category in addProduct.categories"
-                ng-model="form.categories[addProduct.i]"
-                ng-change="insertSelection()"/>
+        <div id="select_area"></div>
 
-        <button type="file"
-                ngf-select="admin.uploadImage($file, $invalidFiles, product.id)"
-                accept="image/*"
-                ngf-max-height="1000"
-                ngf-max-size="1MB"
-                class='btn'>
-                Select Image File</button>
+          <select name="categories"
+                  ng-options="category.name for category in addProduct.categories"
+                  ng-model="form.categories[addProduct.i]"
+                  ng-change="insertSelection()"/>
+
+          <button type="file"
+                  ngf-select="admin.uploadImage($file, $invalidFiles, product.id)"
+                  accept="image/*"
+                  ngf-max-height="1000"
+                  ngf-max-size="1MB"
+                  class='btn'>
+                  Select Image File</button>
 
       </div>
 
