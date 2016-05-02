@@ -12,7 +12,9 @@ class Product < ActiveRecord::Base
   end
 
   def set_categories(categories)
-    categories.values.each{|cat| self.categories << Category.find_by(name: cat['name'])}
-    self.save
+    if !categories.nil?
+      categories.values.each{|cat| self.categories << Category.find_by(name: cat['name'])}
+      self.save
+    end
   end
 end

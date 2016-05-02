@@ -1,13 +1,20 @@
 var NewProduct = {
   templateUrl: 'app/templates/admin/newProduct.html',
-  controller: function(categoryFactory, $scope, $compile, productFactory) {
+  controller: function(categoryFactory, $scope, $compile, productFactory, categoryFactory) {
     var ctrl = this;
 
     ctrl.submit = function() {
-      console.log($scope.form)
       productFactory.create({product: $scope.form}).$promise.then(function(resp){
         $scope.$emit('newProduct', resp);
-      })
+      });
+    };
+
+    ctrl.submitCategory = function() {
+      categoryFactory.create({name: $scope.categoryForm.name}).$promise.then(function(resp) {
+        $scope.$emit('addCategory', resp);
+        ctrl.categories.push(resp);
+        delete $scope.categoryForm.name;
+      });
     };
 
     ctrl.i = 0;
@@ -17,8 +24,7 @@ var NewProduct = {
     ctrl.remove = function(id) {
       var keys_array = Object.keys($scope.form.categories);
       for( i in keys_array) {
-        var possible_form_category = $scope.form.categories[keys_array[i]]
-        if(possible_form_category.id === id) {
+        if($scope.form.categories[keys_array[i]].id === id) {
           delete $scope.form.categories[keys_array[i]];
           angular.element(document.querySelector('.cat_id_'+id)).remove();
         };

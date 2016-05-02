@@ -25,6 +25,10 @@ function Home($scope, Auth, productFactory, categoryFactory, $cookies) {
     $scope.user = {};
   });
 
+  $scope.$on('addCategory', function(e, category) {
+    ctrl.categories.push(category);
+  });
+
 };
 
 

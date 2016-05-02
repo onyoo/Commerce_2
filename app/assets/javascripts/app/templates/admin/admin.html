@@ -1,6 +1,6 @@
 <h2>Welcome Admin!</h2>
 
-<div id="filters" class='filter_bar' ng-init="min = 0; max= 10000; addProduct = false">
+<div id="filters" class='filter_bar' ng-init="min = 0; max= 10000; addProduct = false; addCategory = false";>
   <p>
     <input type="text" ng-model="search" placeholder='Search Products'>
   </p>
@@ -8,8 +8,8 @@
     Min: $<input type="number" ng-model="min">
     Max: $<input type="number" ng-model="max">
   </p>
-  <button ng-click="sort = '-price'; reverse = !reverse" class='btn'>Reverse Price Order</button>
-  <button ng-click="addProduct = !addProduct" class='btn'>Add New Product</button>
+  <button ng-click="sort = '-price'; reverse = !reverse" class='btn'>Reverse Price Order</button><br>
+  <button ng-click="addProduct = !addProduct" class='btn'>Add New Product Or Category</button>
 </div>
 
   <new-product ng-show="addProduct"></new-product>
@@ -65,7 +65,7 @@
                 ngf-max-height="1000"
                 ngf-max-size="1MB"
                 class='btn'>
-                Select Image File</button>
+                Change Image File</button>
 
         <button class="btn-danger"
                 ng-click="admin.delete(product.id)">Delete</button>

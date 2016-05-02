@@ -12,6 +12,11 @@ module Api
         render json: products
       end
 
+      def create
+        category = Category.find_or_create_by(name: params[:name])
+        render json: category
+      end
+
     end
   end
 end

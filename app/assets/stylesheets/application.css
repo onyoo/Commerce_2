@@ -124,6 +124,7 @@ ul {
 
 .light_box {
   background-color: white;
+  border: 2px solid black;
   position: fixed;
   top: 10em;
   left: 20%;
@@ -134,7 +135,8 @@ ul {
 }
 
 .black_out {
-  position: absolute;
+  position: fixed;
+  z-index: 999;
   right: 0;
   top: 5em;
   width: 100%;
