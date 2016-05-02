@@ -25,3 +25,9 @@
 .input_image {
   margin-left: 35%;
 }
+
+@media all and (min-width: 0px) and (max-width: 497px) {
+   .admin_li {
+     margin-top: 6em;
+    }
+  }
