@@ -6,7 +6,8 @@ function ProductFactory($resource) {
   var product = $resource(host + '/products/:id',{id: '@id'}, {
             query: {method: 'GET', isArray: true},
             patch: {method: 'PATCH'},
-            create: {method: 'POST'}
+            create: {method: 'POST'},
+            destroy: {method: 'DELETE'}
           });
 
   return product;

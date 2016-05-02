@@ -24,6 +24,7 @@
             <p>Name: {{product.name}}</p>
             <p>Inventory: {{product.inventory}}</p>
             <p>Price: {{product.price | currency}}</p>
+            <p>Categories: <span ng-repeat='cat in product.categories' class="cat_border">{{cat.name}} </span></p>
           </div>
         </div>
 
@@ -65,6 +66,9 @@
                 ngf-max-size="1MB"
                 class='btn'>
                 Select Image File</button>
+
+        <button class="btn-danger"
+                ng-click="admin.delete(product.id)">Delete</button>
       </div>
     </div>
   </li>

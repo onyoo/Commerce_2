@@ -27,6 +27,11 @@
   margin-left: 35%;
 }
 
+.cat_border {
+  border: 1px solid grey;
+  padding: .2em;
+}
+
 @media all and (min-width: 0px) and (max-width: 497px) {
  .admin_li {
    margin-top: 6em;

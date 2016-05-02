@@ -5,12 +5,12 @@ module Api
       def create
         product = Product.create(product_params)
         product.set_categories(params['product']['categories'])
-        render json: product
+        render json: product, include: :categories
       end
 
       def index
         product = Product.all
-        render json: product
+        render json: product, include: :categories
       end
 
       def show
@@ -26,6 +26,11 @@ module Api
         elsif product.update(product_params)
           render json: product
         end
+      end
+
+      def destroy
+        product = Product.destroy(params[:id])
+        render nothing: true, status: 201
       end
 
     private

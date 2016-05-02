@@ -53,6 +53,18 @@ function Admin(productFactory, Upload, $scope, productFactory) {
     });
   };
 
+  ctrl.delete = function(product_id) {
+    if (confirm('Are you sure? This can not be undone!')) {
+      productFactory.destroy({id: product_id}).$promise.then(function(){
+        for ( var i = 0; i < ctrl.products.length ; i++) {
+          if(ctrl.products[i].id === product_id){
+            delete ctrl.products[i];
+          };
+        };
+      })
+    }
+  }
+
   $scope.$on('newProduct', function (emitEvent, product) {
     ctrl.products.push(product);
   });
