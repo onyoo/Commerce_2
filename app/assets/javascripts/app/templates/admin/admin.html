@@ -18,13 +18,12 @@
   <li>
     <div class='admin_li'>
       <div class="row">
-        <div class="admin_text">
-          <div class="col-xs-8">
+        <div>
+          <div class="col-xs-8 admin_text">
             <p>ID:{{product.id}}</p>
             <p>Name: {{product.name}}</p>
             <p>Inventory: {{product.inventory}}</p>
             <p>Price: {{product.price | currency}}</p>
-            <p>Categories: <span ng-repeat='cat in product.categories' class="cat_border">{{cat.name}} </span></p>
           </div>
         </div>
 
@@ -34,6 +33,7 @@
           </div>
         </div>
       </div>
+      <p>Categories: <span ng-repeat='cat in product.categories' class="cat_border">{{cat.name}} </span></p>
 
 
       <div class="admin_edit ">

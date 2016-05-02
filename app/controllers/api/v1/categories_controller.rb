@@ -17,6 +17,11 @@ module Api
         render json: category
       end
 
+      def destroy
+        category = Category.destroy(params[:id])
+        render json: category
+      end
+
     end
   end
 end

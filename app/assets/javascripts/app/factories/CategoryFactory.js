@@ -5,7 +5,8 @@ function CategoryFactory($resource) {
 
   var product = $resource(host + '/categories/:id',{id: '@product'}, {
             query: {method: 'GET', isArray: true},
-            create: {method: 'POST'}
+            create: {method: 'POST'},
+            destroy: {method: 'DELETE'}
           });
 
   return product;

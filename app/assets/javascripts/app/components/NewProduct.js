@@ -36,11 +36,36 @@ var NewProduct = {
     };
 
     $scope.insertSelection = function() {
-      angular.element(document
-        .querySelector('#select_area'))
-        .append($compile('<span name="categories" class="cat_id_'+ $scope.form.categories[ctrl.i].id +'" ng-click="addProduct.remove('+ $scope.form.categories[ctrl.i].id +')" >' + $scope.form.categories[ctrl.i].name + '<br></span>')($scope));
+      angular.element(document.querySelector('#select_area'))
+        .append($compile(constructInsert())($scope));
       ++ctrl.i;
     };
+
+    ctrl.deleteCategory = function(category_id) {
+      categoryFactory.delete({id: category_id}).$promise.then(function(resp) {
+        $scope.$emit('deleteCategory', resp);
+        ctrl.categories.forEach(function(cat, i) {
+          if(cat.id===resp.id){
+            angular.element(document.querySelector('#cat_id_'+category_id)).remove($compile())($scope);
+            delete ctrl.categories[i];
+          };
+        });
+      });
+    };
+
+    constructInsert = function() {
+      return [
+        '<span ',
+      'name="categories" ',
+      'class="cat_id_'+ $scope.form.categories[ctrl.i].id +'" ',
+      '>' + $scope.form.categories[ctrl.i].name + '',
+      '<img src="/system/site_images/close_button.png" ',
+      'ng-click="addProduct.remove('+ $scope.form.categories[ctrl.i].id +')"',
+      'alt="delete categry button" ',
+      'id="cat_id_{{cat.id}}" ',
+      'class="close_button"><br></span>'].join('')
+    };
+
   },
   controllerAs: 'addProduct'
 };

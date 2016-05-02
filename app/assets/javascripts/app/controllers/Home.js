@@ -29,6 +29,14 @@ function Home($scope, Auth, productFactory, categoryFactory, $cookies) {
     ctrl.categories.push(category);
   });
 
+  $scope.$on('deleteCategory', function(e, category) {
+    ctrl.categories.forEach(function(cat, i) {
+      if(cat.id===category.id){
+        delete ctrl.categories[i];
+      };
+    });
+  });
+
 };
 
 

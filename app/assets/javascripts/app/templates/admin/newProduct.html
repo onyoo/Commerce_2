@@ -22,15 +22,28 @@
                   class='btn'>
                   Select Image File</button>
 
-      </div>
+        </div>
 
       <input type="submit" value="Create">
     </form>
-    <br>
 
-    <form ng-submit="addProduct.submitCategory(); $parent.addProduct=false">
-      <input type="text" ng-model="categoryForm.name">
-      <input type="submit" value="Create">
-    </form>
+    <br><br><div id="category_section"><br>
+
+      <form ng-submit="addProduct.submitCategory(); $parent.addProduct=false">
+        <input type="text" ng-model="categoryForm.name">
+        <input type="submit" value="Create">
+      </form>
+<br>
+      Existing Categories:
+      <p ng-repeat="cat in addProduct.categories"
+          id="cat_id_{{cat.id}}">{{cat.name}}
+        <img src="/system/site_images/close_button.png"
+              alt="delete categry button"
+              id="category_{{cat.id}}"
+              class="close_button"
+              ng-click="addProduct.deleteCategory(cat.id)">
+      </p>
+    </div>
+
   </div>
 </div>

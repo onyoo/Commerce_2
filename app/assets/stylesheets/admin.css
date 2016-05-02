@@ -5,12 +5,18 @@
 
 .admin_image {
   width: 100px;
+  padding-top: 3em;
+}
+
+.admin_text {
+  padding-top: 3em;
 }
 
 .admin_li {
   margin-left: 20%;
   margin-right: 20%;
   height: 20em;
+  margin-top: 2em;
 }
 
 #admin_product_list {
@@ -30,6 +36,14 @@
 .cat_border {
   border: 1px solid grey;
   padding: .2em;
+}
+
+.close_button {
+  width: .7em;
+}
+
+#category_section {
+  border-top: 1px solid lightgrey;
 }
 
 @media all and (min-width: 0px) and (max-width: 497px) {
