@@ -26,9 +26,7 @@ var Cart = {
 
   },
   controllerAs: 'cart'
-}
-
-
+};
 
 angular
   .module('app')

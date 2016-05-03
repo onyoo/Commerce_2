@@ -15,7 +15,7 @@ module Api
 
       def show
         product = Product.find(params[:id])
-        render json: product
+        render json: product.to_json(include: [:reviews => {:include => :user}])
       end
 
       def update

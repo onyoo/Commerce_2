@@ -1,0 +1,13 @@
+.review_div {
+  padding: 1em;
+  border: 2px solid black;
+  text-align: center;
+  margin-right: 16.666%;
+  margin-left: 16.666%;
+}
+
+.rating_slider {
+  width: 40% !important;
+  margin-right: 30%;
+  margin-left: 30%;
+}

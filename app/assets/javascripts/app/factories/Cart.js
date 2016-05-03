@@ -1,6 +1,3 @@
-angular
-  .module('app')
-  .factory('Cart', Cart);
 
 function Cart($resource) {
 
@@ -16,3 +13,7 @@ function Cart($resource) {
   return cart;
 
 };
+
+angular
+.module('app')
+.factory('Cart', Cart);
