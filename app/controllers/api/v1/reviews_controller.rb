@@ -12,6 +12,12 @@ module Api
         render json: review, :include => :user
       end
 
+      def update
+        review = Review.find(params[:id])
+        params[:useful] ? review.update(helpful_score: (review.helpful_score + 1)) : null
+        render json: review
+      end
+
       private
       def review_params
         params.require(:review).permit(:body, :rating, :product_id, :user_id)

@@ -146,3 +146,7 @@ ul {
   background: linear-gradient(to right,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#33000000',GradientType=1 );
 }
+
+.hover_pointer {
+  cursor: pointer;
+}
