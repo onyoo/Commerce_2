@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'active_model_serializers'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
 gem 'devise'

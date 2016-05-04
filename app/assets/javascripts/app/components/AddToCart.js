@@ -6,7 +6,9 @@ var AddToCart = {
   controller: function($state, $scope, Cart) {
     var ctrl = this;
 
-    ctrl.carts = Cart.query();
+    Cart.query({}, function(resp) {
+      ctrl.carts = resp.carts;
+    });
 
     ctrl.add = function(cart) {
       cart.product = ctrl.product;

@@ -4,7 +4,7 @@ module Api
 
       def show
         reviews = Review.where(product_id: params[:id])
-        render json: reviews
+        render json: reviews, :include => :likers
       end
 
       def create
@@ -14,8 +14,8 @@ module Api
 
       def update
         review = Review.find(params[:id])
-        params[:useful] ? review.update(helpful_score: (review.helpful_score + 1)) : null
-        render json: review
+        params[:review][:useful] ? current_user.liked_reviews << review : null
+        render json: review, :include => :likers
       end
 
       private

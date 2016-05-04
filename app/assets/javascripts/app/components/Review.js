@@ -4,11 +4,15 @@ var ReviewComponent = {
   bindings: {
     review: '='
   },
-  controller: function(reviewFactory) {
+  controller: function(reviewFactory, $scope) {
     var ctrl = this;
     ctrl.upvote = function() {
-      reviewFactory.patch({id: ctrl.review.id, useful: 'ture'}, function(resp) {
-        ctrl.review.helpful_score = resp.helpful_score;
+      $scope.upVote = {}
+      $scope.upVote.user_id = parseInt($scope.$parent.user.id);
+      $scope.upVote.product_id = parseInt(ctrl.product_id);
+      $scope.upVote.useful = 'true'
+      reviewFactory.patch({id: ctrl.review.id, review: $scope.upVote}, function(resp) {
+        ctrl.review.likers = resp.review.likers;
       });
     }
   },

@@ -2,7 +2,9 @@
 function Product(productFactory, $stateParams, $scope, reviewFactory) {
   var ctrl = this;
 
-  ctrl.product = productFactory.get({name: $stateParams.name, id: $stateParams.id});
+  productFactory.get({name: $stateParams.name, id: $stateParams.id}, function(resp) {
+    ctrl.product = resp.product
+  });
 
 
   ctrl.submitReview = function() {
@@ -10,7 +12,7 @@ function Product(productFactory, $stateParams, $scope, reviewFactory) {
     $scope.reviewForm.product_id = parseInt(ctrl.product.id);
     reviewFactory.create($scope.reviewForm, function(resp) {
       delete $scope.reviewForm;
-      ctrl.product.reviews.push(resp);
+      ctrl.product.reviews.push(resp.review);
     });
   }
 };

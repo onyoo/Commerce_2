@@ -4,7 +4,7 @@ function Cart($resource) {
   var host = 'http://localhost:3000/api/v1'
 
   var cart = $resource(host + '/carts/:id',{id: '@cart'}, {
-            query: { method: 'GET', isArray: true },
+            query: { method: 'GET', isArray: false },
             create: { method: 'POST' },
             update: { method: 'PUT' },
             delete: { method: 'DELETE' }

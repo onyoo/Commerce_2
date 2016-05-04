@@ -2,7 +2,7 @@
 function Index(productFactory) {
   var ctrl = this;
 
-  ctrl.products = productFactory.query();
+  productFactory.query({}, function(resp) { ctrl.products = resp.products; });
 
 };
 

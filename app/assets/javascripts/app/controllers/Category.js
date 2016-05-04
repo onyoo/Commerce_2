@@ -2,7 +2,9 @@ function Category(categoryFactory, $stateParams) {
 
   var ctrl = this;
 
-  ctrl.products = categoryFactory.query({'id': $stateParams.id});
+  categoryFactory.query({'id': $stateParams.id}, function(resp) {
+    ctrl.products = resp.categories
+  });
 
 }
 
