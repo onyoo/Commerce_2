@@ -9,7 +9,11 @@ var NewCart = {
     ctrl.newCartOption = true;
     ctrl.cart = new Cart();
 
-    ctrl.user = Auth.currentUser()
+    Auth.currentUser().then(function(user) {
+        ctrl.user = user.user;
+      },function(err) {
+        ctrl.user = undefined;
+      });
 
     ctrl.new = function() {
       if(ctrl.user !== undefined) {
