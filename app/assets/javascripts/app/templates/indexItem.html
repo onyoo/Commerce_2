@@ -10,8 +10,9 @@
     <p>{{indexItem.product.name}}</p>
     <p>{{indexItem.product.price | currency}}</p>
     <p>Only {{indexItem.product.inventory}} left!</p><br/>
-    <div>
-      <add-to-cart product="indexItem.product"></add-to-cart>
-    </div>
+  </div>
+
+  <div class="add_to_cart">
+    <add-to-cart product="indexItem.product"></add-to-cart>
   </div>
 </div>

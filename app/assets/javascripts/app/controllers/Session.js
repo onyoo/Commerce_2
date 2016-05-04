@@ -13,4 +13,12 @@ function Session($scope, $state, Auth) {
     });
   };
 
+  ctrl.register = function() {
+    Auth.register(ctrl.user).then(function(resp) {
+      $state.go('home.index');
+    }, function(error) {
+      console.log(error);
+    });
+  };
+
 };

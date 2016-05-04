@@ -14,11 +14,11 @@ function Home($scope, Auth, productFactory, categoryFactory, $cookies) {
 
   // listen for devise events
   $scope.$on('devise:new-registration', function(e, user) {
-    $scope.user = user;
+    $scope.user = user.user;
   });
 
   $scope.$on('devise:login', function(e, user) {
-    $scope.user = user;
+    $scope.user = user.user;
   });
 
   $scope.$on('devise:logout', function(e, user) {

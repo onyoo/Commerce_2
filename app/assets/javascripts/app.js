@@ -11,7 +11,19 @@ angular
       })
       .state('home.login', {
         url: 'login',
-        templateUrl: 'app/templates/login.html',
+        templateUrl: 'app/templates/auth/login.html',
+        controller: 'Session as session',
+        onEnter: function(Auth, $state) {
+          Auth.currentUser().then(function(resp) { // checks if user has already been logged-in returns user obj if called
+            if(resp.id!==undefined && resp.email!== undefined){
+              $state.go('home.index') //redirects index if signed in
+            }
+          });
+        }
+      })
+      .state('home.register', {
+        url: 'register',
+        templateUrl: 'app/templates/auth/register.html',
         controller: 'Session as session',
         onEnter: function(Auth, $state) {
           Auth.currentUser().then(function(resp) { // checks if user has already been logged-in returns user obj if called

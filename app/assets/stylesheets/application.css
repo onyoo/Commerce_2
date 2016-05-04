@@ -18,6 +18,8 @@
 
 .product_thumbnail {
   height: 130px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navbar {
@@ -63,6 +65,10 @@
   margin-right: auto;
 }
 
+.add_to_cart {
+  text-align: center;
+}
+
 .centered_description {
   text-align: center;
 }
@@ -91,11 +97,10 @@ IMG.centered_image {
 }
 
 .list_item {
-  padding: 4em;
+  padding: 5%;
   margin: 3em;
   border: 1px solid #F8F1EA;
   position:relative;
-  /* position:relative allows  .choose_cart to overflow*/
 }
 
 .cart_bottom {
@@ -113,15 +118,12 @@ ul {
 }
 
 .choose_cart {
-  /*position: absolute;*/
-  /*top: 15em;*/
-  /*right: 9%;*/
-  width: 40%;
-  margin-left: 30%;
+  width: 70%;
+  margin-left: 15%;
   text-align: center;
-  z-index: 10;
   border-top: 1px solid black;
   background-color: #F0EAEC;
+
 }
 
 .light_box {
@@ -149,6 +151,26 @@ ul {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#33000000',GradientType=1 );
 }
 
+.auth_forms {
+  text-align: center;
+  padding: 3em;
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+}
+
+.auth_container {
+  margin-top: 3em;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+}
+
 .hover_pointer {
   cursor: pointer;
+}
+
+#login_links {
+  position: fixed;
+  right: 2em;
+  top: .5em;
 }
