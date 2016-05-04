@@ -17,6 +17,13 @@ module Api
         render json: category
       end
 
+      def update
+        category = Category.find(params[:id])
+        product = Product.find(params[:product][:id])
+        category.products << product
+        render json: category
+      end
+
       def destroy
         category = Category.destroy(params[:id])
         render json: category

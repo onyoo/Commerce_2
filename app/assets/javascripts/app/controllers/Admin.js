@@ -1,7 +1,12 @@
-function Admin(productFactory, Upload, $scope, productFactory) {
+function Admin(productFactory, Upload, $scope, productFactory, categoryFactory) {
   var ctrl = this;
 
   ctrl.products = productFactory.query();
+  ctrl.categories = categoryFactory.query();
+
+  ctrl.update = function(product, category) {
+    categoryFactory.patch({id: category.id, 'product': product})
+  }
 
   ctrl.uploadImage = function(image, invalid, id) {
     Upload.upload({

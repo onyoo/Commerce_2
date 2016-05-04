@@ -14,7 +14,7 @@
 
   <new-product ng-show="addProduct"></new-product>
 
-<ul class="admin_product_list" ng-repeat="product in admin.products | filter:search | priceFilter:min:max | orderBy:sort:reverse">
+<ul class="admin_product_list container" ng-repeat="product in admin.products | filter:search | priceFilter:min:max | orderBy:sort:reverse">
   <li>
     <div class='admin_li'>
       <div class="row">
@@ -32,44 +32,53 @@
             <img ng-src="{{product.image_url}}" class="admin_image" alt="{{product.name}} image">
           </div>
         </div>
+
       </div>
+        <p ng-init="showAddCat=false">
+          Categories: <span ng-repeat='cat in product.categories' class="cat_border">{{cat.name}} </span>
+          <span ng-click="showAddCat=!showAddCat">Add</span>
+          <select name="categories"
+                  ng-show="showAddCat"
+                  ng-options="category.name for category in admin.categories"
+                  ng-model="category"
+                  ng-change="product.categories.push(category); admin.update(product, category); showAddCat = false"></select>
+        </p>
 
-      <p>Categories: <span ng-repeat='cat in product.categories' class="cat_border">{{cat.name}} </span></p>
+      <div class="row">
+        <div class="admin_edit ">
 
+          <form ng-submit="admin.changeName(product.id, name)">
+            <p class="row admin_input">
+              <input type="text" ng-model="name" placeholder="Name" class="col-xs-8">
+              <input type="submit" value="Change">
+            </p>
+          </form>
 
-      <div class="admin_edit ">
+          <form ng-submit="admin.changeInventory(product.id, inventory)">
+            <p class="row admin_input">
+              <input type="number" ng-model="inventory" placeholder="Inventory" class="col-xs-8">
+              <input type="submit" value="Change">
+            </p>
+          </form>
 
-        <form ng-submit="admin.changeName(product.id, name)">
-          <p class="row admin_input">
-            <input type="text" ng-model="name" placeholder="Name" class="col-xs-8">
-            <input type="submit" value="Change">
-          </p>
-        </form>
+          <form ng-submit="admin.changePrice(product.id, price)">
+            <p class="row admin_input">
+              <input type="number" ng-model="price" placeholder="Price" class="col-xs-8">
+              <input type="submit" value="Change">
+            </p>
+          </form>
 
-        <form ng-submit="admin.changeInventory(product.id, inventory)">
-          <p class="row admin_input">
-            <input type="number" ng-model="inventory" placeholder="Inventory" class="col-xs-8">
-            <input type="submit" value="Change">
-          </p>
-        </form>
+          <button type="file"
+                  ngf-select="admin.uploadImage($file, $invalidFiles, product.id)"
+                  accept="image/*"
+                  ngf-max-height="1000"
+                  ngf-max-size="1MB"
+                  class='btn'>
+                  Change Image File</button>
 
-        <form ng-submit="admin.changePrice(product.id, price)">
-          <p class="row admin_input">
-            <input type="number" ng-model="price" placeholder="Price" class="col-xs-8">
-            <input type="submit" value="Change">
-          </p>
-        </form>
-
-        <button type="file"
-                ngf-select="admin.uploadImage($file, $invalidFiles, product.id)"
-                accept="image/*"
-                ngf-max-height="1000"
-                ngf-max-size="1MB"
-                class='btn'>
-                Change Image File</button>
-
-        <button class="btn-danger"
-                ng-click="admin.delete(product.id)">Delete</button>
+          <button class="btn-danger"
+                  ng-click="admin.delete(product.id)">Delete</button>
+        </div>
       </div>
     </div>
   </li>

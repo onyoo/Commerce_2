@@ -12,7 +12,7 @@
     <p>Only {{indexItem.product.inventory}} left!</p><br/>
   </div>
 
-  <div class="add_to_cart">
+  <div class="add_to_cart" ng-show="indexItem.product.inventory > 0">
     <add-to-cart product="indexItem.product"></add-to-cart>
   </div>
 </div>
