@@ -10,7 +10,7 @@ var ChangeQuantity = {
     product: '=',
     cart: '='
   },
-  controller: function() {
+  controller: function($scope) {
     var ctrl = this;
 
     ctrl.edit = function(product, quantity) {
@@ -33,6 +33,7 @@ var ChangeQuantity = {
         }else{           // index views
           product.inventory -= quantity;
         }
+        $scope.$parent.$parent.chooseCart = false;
       });
     };
   },
