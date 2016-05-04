@@ -1,11 +1,25 @@
 var NewProduct = {
   templateUrl: 'app/templates/admin/newProduct.html',
-  controller: function(categoryFactory, $scope, $compile, productFactory, categoryFactory) {
+  controller: function(categoryFactory, $scope, $compile, productFactory, categoryFactory, Upload) {
     var ctrl = this;
 
     ctrl.submit = function() {
       productFactory.create({product: $scope.form}).$promise.then(function(resp){
-        $scope.$emit('newProduct', resp);
+        ctrl.product = resp;
+        Upload.upload({
+          url: '/api/v1/products/' + resp.id,
+          method: 'PATCH',
+          data: {'product_image': $scope.form.product_image},
+        }).then(function (response) {
+          ctrl.product.image_url = response.data.url
+        }, function (response) {
+          // if (response.status > 0)
+          //   $scope.errorMsg = response.status + ': ' + response.data;
+        }, function (evt) {
+          // file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+        $scope.$emit('newProduct', ctrl.product);
+        delete $scope.form;
       });
     };
 

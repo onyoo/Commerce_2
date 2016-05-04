@@ -12,19 +12,24 @@
           <select name="categories"
                   ng-options="category.name for category in addProduct.categories"
                   ng-model="form.categories[addProduct.i]"
-                  ng-change="insertSelection()"/>
+                  ng-change="insertSelection()"></select>
 
           <button type="file"
-                  ngf-select="admin.uploadImage($file, $invalidFiles, product.id)"
+                  name="image_upload"
+                  ng-model="form.product_image"
+                  ngf-select
                   accept="image/*"
                   ngf-max-height="1000"
                   ngf-max-size="1MB"
-                  class='btn'>
+                  class='btn'
+                  ngf-model-invalid="errorFile">
                   Select Image File</button>
+          <i ng-show="myForm.file.$error.maxSize">File too large {{errorFilre.size/1000000|number:1}} MB: max 1MB</i>
 
         </div>
 
       <input type="submit" value="Create">
+
     </form>
 
     <br><br><div id="category_section"><br>

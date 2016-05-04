@@ -65,7 +65,7 @@ function Admin(productFactory, Upload, $scope, productFactory) {
     }
   }
 
-  $scope.$on('newProduct', function (emitEvent, product) {
+  $scope.$on('newProduct', function (emitEvent, product) { // from newProduct.js
     ctrl.products.push(product);
   });
 

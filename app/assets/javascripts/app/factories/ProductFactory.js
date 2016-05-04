@@ -9,8 +9,14 @@ function ProductFactory($resource) {
                     transformResponse: function(data, header){
                       return JSON.parse(data).products;
                     }},
-            patch: {method: 'PATCH'},
-            create: {method: 'POST'},
+            patch: {method: 'PATCH',
+                      transformResponse: function(data, header){
+                      return JSON.parse(data).product;
+                    }},
+            create: {method: 'POST',
+                      transformResponse: function(data, header){
+                      return JSON.parse(data).product;
+                    }},
             destroy: {method: 'DELETE'}
           });
 
