@@ -8,8 +8,8 @@
     Min: $<input type="number" ng-model="min">
     Max: $<input type="number" ng-model="max">
   </p>
-  <button ng-click="sort = '-price'; reverse = !reverse" class='btn'>Reverse Price Order</button><br>
-  <button ng-click="addProduct = !addProduct" class='btn'>Add New Product Or Category</button>
+  <button ng-click="sort = '-price'; reverse = !reverse" class='btn point_5_margin'>Reverse Price Order</button><br>
+  <button ng-click="addProduct = !addProduct" class='btn point_5_margin'>Add New Product Or Category</button>
 </div>
 
   <new-product ng-show="addProduct"></new-product>
@@ -35,12 +35,13 @@
 
       </div>
         <p ng-init="showAddCat=false">
-          Categories: <span ng-repeat='cat in product.categories' class="cat_border">{{cat.name}} </span>
+          Categories: <span ng-repeat='cat in product.categories' class="cat_border">{{cat.name}}</span>
           <span ng-click="showAddCat=!showAddCat">Add</span>
           <select name="categories"
                   ng-show="showAddCat"
                   ng-options="category.name for category in admin.categories"
                   ng-model="category"
+                  class="point_5_margin"
                   ng-change="product.categories.push(category); admin.update(product, category); showAddCat = false"></select>
         </p>
 

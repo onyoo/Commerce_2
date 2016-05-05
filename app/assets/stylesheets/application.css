@@ -17,7 +17,8 @@
  */
 
 .product_thumbnail {
-  height: 130px;
+  max-height: 180px;
+  max-width: 250px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -59,10 +60,19 @@
 
 .index_prod_half {
   text-align: center;
-  width: 49%;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.point_5_margin{
+  margin: .5em;
+}
+
+.add_2_margin {
+  margin: 2em;
+}
+
+.center-middle {
+  position: relative;
+  bottom: -2.3em;
 }
 
 .add_to_cart {

@@ -12,8 +12,9 @@
           <select name="categories"
                   ng-options="category.name for category in addProduct.categories"
                   ng-model="form.categories[addProduct.i]"
-                  ng-change="insertSelection()"></select>
-
+                  ng-change="insertSelection()"
+                  class="point_5_margin"></select>
+        <br>
           <button type="file"
                   name="image_upload"
                   ng-model="form.product_image"
@@ -28,7 +29,7 @@
 
         </div>
 
-      <input type="submit" value="Create">
+      <input type="submit" class="point_5_margin" value="Create">
 
     </form>
 
@@ -36,10 +37,11 @@
 
       <form ng-submit="addProduct.submitCategory(); $parent.addProduct=false">
         <input type="text" ng-model="categoryForm.name">
-        <input type="submit" value="Create Category">
+        <input type="submit" class="point_5_margin" value="Create Category">
       </form>
 <br>
-      Existing Categories (click to delete):
+      Existing Categories <br>
+      (click to delete):
       <p ng-repeat="cat in addProduct.categories"
           id="cat_id_{{cat.id}}">{{cat.name}}
         <img src="/system/site_images/close_button.png"

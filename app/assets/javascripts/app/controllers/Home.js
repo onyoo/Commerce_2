@@ -9,7 +9,6 @@ function Home($scope, Auth, productFactory, categoryFactory, $cookies) {
   Auth.currentUser()
     .then(function(user) {
       $scope.user = user.user;
-      $cookies.put('user_id', user.id);
     });
 
   // listen for devise events

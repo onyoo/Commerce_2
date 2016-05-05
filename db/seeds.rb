@@ -11,8 +11,6 @@ la_sortiva = Product.create(name: 'la Sportiva Skwama', price: 200, inventory: 5
 
 dog_toys_cat = Category.create(name:'Dog Toys')
 climbing_cat = Category.create(name:'Climbing Gear')
-coumputer_cat = Category.create(name:'Computers')
-cycling_cat = Category.create(name:'Cycling')
 
 category_item = CategoryItem.create(category_id: dog_toys_cat.id, product_id: dog_toy.id)
 category_item = CategoryItem.create(category_id: dog_toys_cat.id, product_id: dog_bone.id)
