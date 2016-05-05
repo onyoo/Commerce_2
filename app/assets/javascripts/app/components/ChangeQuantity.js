@@ -3,7 +3,7 @@ var ChangeQuantity = {
     "<form  ng-submit='changeQ.edit(changeQ.product, changeQ.quantity); changeQ.product.show=false;changeQ.cart.active=false '>", // ng-show='changeQ.product.show'
       "Quantity: ",
       "<input type='number' ng-model='changeQ.quantity' value='{{changeQ.product.quantity}}' min='0' max='{{changeQ.product.inventory}}'><br>",
-      "<input type='submit'>",
+      "<input type='submit' value='Update' class='point_5_margin'>",
     "</form>"
   ].join(''),
   bindings: {

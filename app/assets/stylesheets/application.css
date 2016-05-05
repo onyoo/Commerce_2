@@ -102,15 +102,17 @@ IMG.centered_image {
 }
 
 #new_cart_btn {
-  width: 80%;
+  width: 60%;
   background-color: lightgreen;
 }
 
 .list_item {
   padding: 5%;
   margin: 3em;
+  background-color: white;
   border: 1px solid #F8F1EA;
   position:relative;
+  box-shadow: 0 5px 19px 0 rgba(0, 0, 0, 0.18);
 }
 
 .cart_bottom {
@@ -131,8 +133,12 @@ ul {
 .choose_cart {
   width: 70%;
   margin-left: 15%;
+  margin-bottom: 2em;
   text-align: center;
   border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-shadow: 0 5px 19px 0 rgba(0, 0, 0, 0.18);
+
   background-color: #F0EAEC;
 
 }

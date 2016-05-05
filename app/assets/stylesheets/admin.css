@@ -43,6 +43,10 @@
   width: .7em;
 }
 
+.fixed-height {
+  height: 2em;
+}
+
 #category_section {
   border-top: 1px solid lightgrey;
 }

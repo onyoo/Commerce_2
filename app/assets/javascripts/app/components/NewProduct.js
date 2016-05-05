@@ -49,12 +49,6 @@ var NewProduct = {
       delete $scope.form;
     };
 
-    $scope.insertSelection = function() {
-      angular.element(document.querySelector('#select_area'))
-        .append($compile(constructInsert())($scope));
-      ++ctrl.i;
-    };
-
     ctrl.deleteCategory = function(category_id) {
       categoryFactory.delete({id: category_id}).$promise.then(function(resp) {
         $scope.$emit('deleteCategory', resp);

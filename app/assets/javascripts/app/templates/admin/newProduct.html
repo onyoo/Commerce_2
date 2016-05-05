@@ -9,11 +9,13 @@
 
         <div id="select_area"></div>
 
-          <select name="categories"
+          <select multiple
+                  size=5
+                  name="categories"
                   ng-options="category.name for category in addProduct.categories"
-                  ng-model="form.categories[addProduct.i]"
-                  ng-change="insertSelection()"
+                  ng-model="form.categories"
                   class="point_5_margin"></select>
+
         <br>
           <button type="file"
                   name="image_upload"

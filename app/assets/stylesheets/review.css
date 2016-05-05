@@ -1,13 +1,23 @@
-.review_div {
+.review-div {
   padding: 1em;
-  border: 2px solid black;
+  border: 2px solid grey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 5px 19px 0 rgba(0, 0, 0, 0.18);
   text-align: center;
   margin-right: 16.666%;
   margin-left: 16.666%;
 }
 
-.rating_slider {
+.rating-slider {
   width: 40% !important;
   margin-right: 30%;
   margin-left: 30%;
+}
+
+.reviews-div {
+  padding: 1em;
+  text-align: center;
+  margin-right: 16.666%;
+  margin-left: 16.666%;
+  margin-bottom: 3em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 5px 19px 0 rgba(0, 0, 0, 0.18);
 }
