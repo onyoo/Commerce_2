@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ui.router', 'templates', 'ngResource', 'Devise', 'ngFileUpload', 'ngCookies'])
+  .module('app', ['ui.router', 'templates', 'ngResource', 'Devise', 'ngFileUpload', 'mgcrea.ngStrap'])
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider

@@ -16,9 +16,26 @@
   </div>
 
   <br>
-  <span ng-repeat='cat in home.categories' class='category_tab'>
-    <span class='category_name tab-pane'><a ui-sref='home.category(cat)'>{{cat.name}}</a></span>
-  </span>
+  <div class="categoris-nav-bar hidden-xs">
+    <span ng-repeat='cat in home.categories' class='category_tab'>
+      <span class='category_name tab-pane'><a ui-sref='home.category(cat)'>{{cat.name}}</a></span>
+    </span>
+  </div>
+
+  <div class="visible-xs" class="category_tab">
+      <button type="button"
+              class="btn-md btn-primary glyphicon glyphicon-th-list"
+              data-animation="am-flip-x"
+              bs-dropdown aria-haspopup="true"
+              aria-expanded="false"> <span>Categories</span></button>
+
+      <ul class="dropdown-menu" role="menu">
+        <span ng-repeat='cat in home.categories'>
+          <div  ><a ui-sref='home.category(cat)' >{{cat.name}}</a></div>
+        </span>
+      </ul>
+  </div>
+
 </div>
 <br><br><br>
 <ui-view></ui-view>

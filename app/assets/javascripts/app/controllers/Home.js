@@ -1,5 +1,5 @@
 
-function Home($scope, Auth, productFactory, categoryFactory, $cookies) {
+function Home($scope, Auth, productFactory, categoryFactory) {
   var ctrl = this;
 
   ctrl.categories = categoryFactory.query();
