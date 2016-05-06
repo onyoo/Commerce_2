@@ -5,8 +5,8 @@ function Session($scope, $state, Auth) {
   ctrl.login = function() {
     Auth.login(ctrl.user).then(function(resp) {
       $state.go('home.index');
-    }, function(error) {
-      console.log(error);
+    }, function(errorResp) {
+      $scope.$emit('loginErrors', errorResp.data.error);
     });
   };
 

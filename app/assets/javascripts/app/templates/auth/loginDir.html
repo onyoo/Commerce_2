@@ -1,0 +1,21 @@
+<div ng-show="form.$submitted">
+  <p ng-repeat="error in form.$error" class="form_error">{{error}}</p>
+</div>
+<p>
+  <input type="email"
+          name="email"
+          placeholder='email'
+          ng-model='session.user.email'
+          required="required">
+</p>
+
+<p>
+  <input type="password"
+          name="password"
+          placeholder='password'
+          ng-model='session.user.password'
+          required="required"
+          pattern=".{3,20}">
+</p>
+<br>
+<input type="submit" name="Submit" value="Login">

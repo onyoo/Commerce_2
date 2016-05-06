@@ -195,6 +195,10 @@ ul {
   background-color: lightblue;
 }
 
+.form_error {
+  color: maroon;
+}
+
 #login_links {
   position: fixed;
   right: 2em;

@@ -1,0 +1,59 @@
+<p id="name">
+  <input type="text"
+          name="name"
+          required="required"
+          placeholder='name'
+          ng-model='session.user.name'
+          pattern=".{3,20}"> <br>
+  <span ng-messages="form.name.$error.required" ng-if="form.name.$touched && form.name.$error.required">
+    <span ng-message="required" class="form_error">Name is required.</span>
+  </span>
+
+</p>
+
+<p id="email">
+  <input type="email"
+          name="email"
+          required="required"
+          placeholder='email'
+          ng-model='session.user.email'
+          pattern=".{3,20}"> <br>
+    <span ng-messages="form.email.$error.required" ng-if="form.email.$touched && form.email.$error.required">
+      <span ng-message="required" class="form_error">Email is required</span>
+    </span>
+    <div ng-show="form.$submitted">
+      <p ng-repeat="error in form.$error.email" class="form_error">This email {{error}}.</p>
+    </div>
+</p>
+
+<p id="password">
+  <input type="password"
+          name="password"
+          required="required"
+          placeholder='password'
+          ng-model='session.user.password'
+          pattern=".{3,20}"> <br>
+  <span ng-messages="form.password.$error" ng-if="form.password.$touched && form.password.$error.required">
+    <span ng-message="required" class="form_error">Password is required</span>
+  </span>
+  <div ng-show="form.$submitted">
+    <p ng-repeat="error in form.$error.password" class="form_error">Password {{error}}.</p>
+  </div>
+</p>
+
+<p id="password_confirmation">
+  <input type="password"
+          name="password_confirmation"
+          required="required"
+          placeholder='re-enter password'
+          ng-model='session.user.password_confirmation'
+          pattern=".{3,20}"> <br>
+  <span ng-messages="form.password_confirmation.$error" ng-if="form.password_confirmation.$touched && form.password_confirmation.$error.required">
+    <span ng-message="required" class="form_error">Please verify password</span>
+  </span>
+  <div ng-show="form.$submitted">
+    <p ng-repeat="error in form.$error.password_confirmation" class="form_error">Confirmation {{error}}.</p>
+  </div>
+</p>
+
+<p><input type="submit" name="Submit" value="Register"></p>
