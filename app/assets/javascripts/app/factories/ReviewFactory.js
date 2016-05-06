@@ -1,6 +1,6 @@
 function ReviewFactory($resource) {
 
-  var host = 'http://localhost:3000/api/v1';
+  var host = '/api/v1';
 
   var review = $resource(host+ '/reviews/:id',{id: '@id'}, {
               query: {method: 'GET',

@@ -1,7 +1,7 @@
 
 function ProductFactory($resource) {
 
-  var host = 'http://localhost:3000/api/v1';
+  var host = '/api/v1';
 
   var product = $resource(host + '/products/:id',{id: '@id'}, {
             query: {method: 'GET',

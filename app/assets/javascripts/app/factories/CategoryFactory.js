@@ -1,7 +1,7 @@
 
 function CategoryFactory($resource) {
 
-  var host = 'http://localhost:3000/api/v1';
+  var host = '/api/v1';
 
   var category = $resource(host + '/categories/:id',{id: '@id'}, {
             query: {method: 'GET',
