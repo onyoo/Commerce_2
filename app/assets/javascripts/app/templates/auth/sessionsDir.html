@@ -1,0 +1,39 @@
+<p id="name">
+  <input type="text" placeholder='name' name="name" ng-model='session.user.name' required="required" pattern=".{3,20}"> <br>
+  <span ng-messages="form.name.$error.required" ng-if="form.name.$touched && form.name.$error.required">
+    <span ng-message="required">Name is required.</span>
+  </span>
+
+</p>
+
+<p id="email">
+  <input type="email" placeholder='email' name="email" ng-model='session.user.email' required="required" pattern=".{3,20}"> <br>
+    <span ng-messages="form.email.$error" ng-if="form.email.$touched && form.email.$error">
+      <span ng-message="required">Email is required</span>
+    </span>
+    <div ng-show="form.$submitted">
+      <p ng-repeat="error in form.$error.email">This email {{error}}.</p>
+    </div>
+</p>
+
+<p id="password">
+  <input type="password" placeholder='password' name="password" ng-model='session.user.password' required="required" pattern=".{3,20}"> <br>
+  <span ng-messages="form.password.$error" ng-if="form.password.$touched && form.password.$error">
+    <span ng-message="required">Password is required</span>
+  </span>
+  <div ng-show="form.$submitted">
+    <p ng-repeat="error in form.$error.password">Password {{error}}.</p>
+  </div>
+</p>
+
+<p id="password_confirmation">
+  <input type="password" placeholder='re-enter password' name="password_confirmation" ng-model='session.user.password_confirmation' required="required" pattern=".{3,20}"> <br>
+  <span ng-messages="form.password_confirmation.$error" ng-if="form.password_confirmation.$touched && form.password_confirmation.$error">
+    <span ng-message="required">Please verify password</span>
+  </span>
+  <div ng-show="form.$submitted">
+    <p ng-repeat="error in form.$error.password_confirmation">Confirmation {{error}}.</p>
+  </div>
+</p>
+
+<p><input type="submit" name="Submit" value="Register"></p>

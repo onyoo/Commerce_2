@@ -1,32 +1,9 @@
 <div class="auth_container">
   <h2>Register</h2>
-  <form ng-submit='session.register()' name="form" class="col-xs-12 auth_forms">
-    <p>
-      <input type="text" placeholder='name' name="name" ng-model='session.user.name' required="required" pattern=".{3,20}"> <br>
-    </p>
-
-    <p>
-      <input type="email" placeholder='email' name="email" ng-model='session.user.email' required="required" pattern=".{3,20}"> <br>
-        <!-- <span ng-messages="form.email.$error" ng-if="form.email.$touched">
-          <span ng-message="required">Email is required</span>
-        </span> -->
-    </p>
-
-    <p>
-      <input type="password" placeholder='password' name="password" ng-model='session.user.password' required="required" pattern=".{3,20}"> <br>
-      <!-- <span ng-messages="form.password.$error" ng-if="form.password.$touched">
-        <span ng-message="required">Password is required</span>
-      </span> -->
-    </p>
-
-    <p>
-      <input type="password" placeholder='re-enter password' name="re_password" ng-model='session.user.passwordCheck' required="required" pattern=".{3,20}"> <br>
-      <!-- <span ng-messages="form.re_password.$error" ng-if="form.re_password.$touched">
-        <span ng-message="required">Please verify password</span>
-      </span> -->
-    </p>
-
-    <p><input type="submit" name="Submit" value="Register"></p>
+  <form ng-submit='session.register()'
+        name="form"
+        class="col-xs-12 auth_forms"
+        session-directive>
   </form>
 
   <div class="redirect_other_auth">

@@ -35,15 +35,15 @@ var NewProduct = {
 
     ctrl.categories = categoryFactory.query();
 
-    ctrl.remove = function(id) {
-      var keys_array = Object.keys($scope.form.categories);
-      for( i in keys_array) {
-        if($scope.form.categories[keys_array[i]].id === id) {
-          delete $scope.form.categories[keys_array[i]];
-          angular.element(document.querySelector('.cat_id_'+id)).remove();
-        };
-      };
-    };
+    // ctrl.remove = function(id) {
+    //   var keys_array = Object.keys($scope.form.categories);
+    //   for( i in keys_array) {
+    //     if($scope.form.categories[keys_array[i]].id === id) {
+    //       delete $scope.form.categories[keys_array[i]];
+    //       angular.element(document.querySelector('.cat_id_'+id)).remove();
+    //     };
+    //   };
+    // };
 
     ctrl.clearForm = function() {
       delete $scope.form;
