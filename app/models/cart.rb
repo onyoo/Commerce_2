@@ -1,6 +1,6 @@
 class Cart < ActiveRecord::Base
   belongs_to :user
-  has_many :line_items
+  has_many :line_items,  dependent: :destroy
   has_many :products, through: :line_items
 
   def add_product(params)
@@ -38,6 +38,7 @@ class Cart < ActiveRecord::Base
   def self.checkout(id, user)
     cart = self.find(id)
     order = Order.create(user_id: user.id, cart_id: cart.id)
+    binding.pry
     cart.destroy
   end
 

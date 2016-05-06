@@ -6,7 +6,7 @@ function LoginDirective () {
     controller: Session,
     link: function ($scope, element, attrs) {
       $scope.$on("loginErrors", function(e, error) {
-          $scope.form.$error[error] = error;
+          $scope.error = error;
       });
     }
   }
