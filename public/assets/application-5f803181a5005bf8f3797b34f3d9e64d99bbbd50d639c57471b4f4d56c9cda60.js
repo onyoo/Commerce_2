@@ -44052,7 +44052,7 @@ angular
 
 function Cart($resource) {
 
-  var host = 'http://localhost:3000/api/v1'
+  var host = '/api/v1'
 
   var cart = $resource(host + '/carts/:id',{id: '@cart'}, {
             query: {method: 'GET',
@@ -44076,7 +44076,7 @@ angular
 
 function CategoryFactory($resource) {
 
-  var host = 'http://localhost:3000/api/v1';
+  var host = '/api/v1';
 
   var category = $resource(host + '/categories/:id',{id: '@id'}, {
             query: {method: 'GET',
@@ -44104,7 +44104,7 @@ angular
 
 function ProductFactory($resource) {
 
-  var host = 'http://localhost:3000/api/v1';
+  var host = '/api/v1';
 
   var product = $resource(host + '/products/:id',{id: '@id'}, {
             query: {method: 'GET',
@@ -44133,7 +44133,7 @@ angular
 .factory('productFactory', ProductFactory);
 function ReviewFactory($resource) {
 
-  var host = 'http://localhost:3000/api/v1';
+  var host = '/api/v1';
 
   var review = $resource(host+ '/reviews/:id',{id: '@id'}, {
               query: {method: 'GET',
