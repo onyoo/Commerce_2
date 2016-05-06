@@ -1,0 +1,27 @@
+<div class='cart_box'>
+  <h4 class='centered_description'>Cart {{cart.cart.id}}</h4>
+
+  <div ng-repeat='product in cart.products | cartQuantity:cart.lineItems:cart track by $index'>
+    <div ng-show='product.name'>
+      <div class='list_item'>
+        <div class='index_prod_half'>
+          <a ui-sref="home.product({name: product.name, id: product.id})">
+            <img class='product_thumbnail img-rounded img-responsive' ng-src="{{product.image_url}}" alt="{{product.name}} image">
+          </a>
+        </div>
+        <div class='index_prod_half'>
+          <div class='index_prod_half'>
+            <p>{{product.name}}</p>
+            <p>{{product.price | currency}}</p>
+            <change-quantity product="product" cart="cart"></change-quantity>
+            <button ng-click='cart.remove(product.id)'>Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='centered_description cart_bottom'>
+    <a ui-sref='home.index'><button class='btn'>Get More!</button></a>
+    <h3>total: {{cart.runningTotal | currency}}</h3>
+  </div>
+</div>

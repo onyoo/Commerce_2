@@ -38,7 +38,6 @@ class Cart < ActiveRecord::Base
   def self.checkout(id, user)
     cart = self.find(id)
     order = Order.create(user_id: user.id, cart_id: cart.id)
-    binding.pry
     cart.destroy
   end
 

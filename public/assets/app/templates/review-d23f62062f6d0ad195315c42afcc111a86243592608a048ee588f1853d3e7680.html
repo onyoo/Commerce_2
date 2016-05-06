@@ -1,0 +1,7 @@
+
+<div class="review-div col-xs-8" ng-init="ableToRate = true;">
+  <p>{{review.review.body}}</p>
+  <p>by: {{review.review.user.name}} on {{review.review.created_at | date:medium}}</p>
+  Helpful? <span class="glyphicon glyphicon-thumbs-up hover_pointer" aria-hidden="true" ng-click="review.upvote()" ng-show="ableToRate"></span>
+  <p>Rating: {{review.review.rating}} - {{review.review.likers.length}} people found this helpful.</p>
+</div>

@@ -1,0 +1,19 @@
+<div class='list_item container'>
+  <div class='row index_prod_half'>
+
+    <a ui-sref="home.product({name: indexItem.product.name, id: indexItem.product.id})" class="col-sm-6">
+      <img class="product_thumbnail img-rounded img-responsive "
+          ng-src="{{indexItem.product.image_url}}"
+          alt="{{indexItem.product.name}} image">
+    </a>
+      <div class="center-middle">
+        <p class=" col-sm-6">{{indexItem.product.name}}</p>
+        <p class=" col-sm-6">{{indexItem.product.price | currency}}</p>
+        <p class=" col-sm-6">Only {{indexItem.product.inventory}} left!</p><br/>
+      </div>
+
+  </div>
+  <div class="add_to_cart" ng-show="indexItem.product.inventory > 0">
+    <add-to-cart product="indexItem.product"></add-to-cart>
+  </div>
+</div>

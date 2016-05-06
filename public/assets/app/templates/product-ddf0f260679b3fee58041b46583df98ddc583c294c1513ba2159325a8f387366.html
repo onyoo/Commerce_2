@@ -1,0 +1,23 @@
+
+<br><br>
+<img ng-src="{{product.product.image_url}}" class="img-responsive centered_image" alt="{{product.product.name}} image">
+
+<div class='centered_description'>
+  <h1>{{product.product.name}}</h1>
+  <h3>{{product.product.price | currency}}</h3>
+  <p>Only {{product.product.inventory}} left!</p>
+  <add-to-cart product='product.product'></add-to-cart>
+
+</div>
+<div ng-repeat="review in product.product.reviews" class="clearfix">
+  <review-component review='review'></review-component>
+</div>
+<br>
+<div id="new_review" class="reviews-div">
+  <form ng-submit="product.submitReview()">
+    <textarea name="name" rows="8" cols="40" ng-model="reviewForm.body" placeholder="Review"></textarea>
+    <br>Your Rating: {{reviewForm.rating}} <br>
+    <input class='rating-slider' type='range' min='0' max='10' step='1' value='5' ng-model="reviewForm.rating" />
+    <input type="submit" value="Submit">
+  </form>
+</div>

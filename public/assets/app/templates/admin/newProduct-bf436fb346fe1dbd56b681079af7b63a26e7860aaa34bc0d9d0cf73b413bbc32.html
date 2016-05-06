@@ -1,0 +1,58 @@
+<div class="black_out" ng-click="$parent.addProduct=false; addProduct.clearForm()">
+  <div class="light_box" ng-click="$event.stopPropagation()">
+    <form ng-submit="addProduct.submit(); $parent.addProduct=false">
+      <div id="new_product_form">
+
+        <input type="text" placeholder="Name" ng-model="form.name"><br>
+        <input type="number" placeholder="Price" ng-model="form.price"><br>
+        <input type="number" placeholder="Inventory" ng-model="form.inventory"><br>
+
+        <div id="select_area"></div>
+
+          <select multiple
+                  size=5
+                  name="categories"
+                  ng-options="category.name for category in addProduct.categories"
+                  ng-model="form.categories"
+                  class="point_5_margin"></select>
+
+        <br>
+          <button type="file"
+                  name="image_upload"
+                  ng-model="form.product_image"
+                  ngf-select
+                  accept="image/*"
+                  ngf-max-height="1000"
+                  ngf-max-size="1MB"
+                  class='btn'
+                  ngf-model-invalid="errorFile">
+                  Select Image File</button>
+          <i ng-show="myForm.file.$error.maxSize">File too large {{errorFilre.size/1000000|number:1}} MB: max 1MB</i>
+
+        </div>
+
+      <input type="submit" class="point_5_margin" value="Create">
+
+    </form>
+
+    <br><br><div id="category_section"><br>
+
+      <form ng-submit="addProduct.submitCategory(); $parent.addProduct=false">
+        <input type="text" ng-model="categoryForm.name">
+        <input type="submit" class="point_5_margin" value="Create Category">
+      </form>
+<br>
+      Existing Categories <br>
+      (click to delete):
+      <p ng-repeat="cat in addProduct.categories"
+          id="cat_id_{{cat.id}}">{{cat.name}}
+        <img src="/system/site_images/close_button.png"
+              alt="delete categry button"
+              id="category_{{cat.id}}"
+              class="close_button"
+              ng-click="addProduct.deleteCategory(cat.id)">
+      </p>
+    </div>
+
+  </div>
+</div>
