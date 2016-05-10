@@ -1,28 +1,8 @@
-== README
+This is a simple commerce platform.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Users can browse products by category, search by price, or keyword. Logged-in
+users (Devise) can create carts, choose which cart to add products to, and check-out.
+Users can also leave a review (with rating). If others find this review helpful,
+they can up-vote it.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Administrators can manage all properties of a product (inventory, price, name, and image).
