@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :user_review_votes
   has_many :liked_reviews, through: :user_review_votes, source: :review
+  has_many :carts
 
 end

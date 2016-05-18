@@ -1,11 +1,11 @@
-function Admin(productFactory, Upload, $scope, productFactory, categoryFactory) {
+function Admin(productFactory, Upload, $scope, productFactory, categoryFactory, $http) {
   var ctrl = this;
 
   ctrl.products = productFactory.query();
   ctrl.categories = categoryFactory.query();
 
   ctrl.update = function(product, category) {
-    categoryFactory.patch({id: category.id, 'product': product})
+    categoryFactory.patch({id: category.id, 'product': product});
   }
 
   ctrl.uploadImage = function(image, invalid, id) {
@@ -25,10 +25,10 @@ function Admin(productFactory, Upload, $scope, productFactory, categoryFactory) 
 
   };
 
-  ctrl.changeName = function(product_id, product_name) {
-    productFactory.patch({ name: product_name, id: product_id}).$promise.then(function(resp){
+  ctrl.changeName = function(productId, productName) {
+    productFactory.patch({ name: productName, id: productId}).$promise.then(function(resp){
       for ( var i = 0; i < ctrl.products.length ; i++) {
-        if(ctrl.products[i].id === product_id){
+        if(ctrl.products[i].id === productId){
           ctrl.products[i] = resp;
         };
       };
@@ -36,10 +36,10 @@ function Admin(productFactory, Upload, $scope, productFactory, categoryFactory) 
     });
   };
 
-  ctrl.changeInventory = function(product_id, product_inventory) {
-    productFactory.patch({ inventory: product_inventory, id: product_id}).$promise.then(function(resp){
+  ctrl.changeInventory = function(productId, productInventory) {
+    productFactory.patch({ inventory: productInventory, id: productId}).$promise.then(function(resp){
       for ( var i = 0; i < ctrl.products.length ; i++) {
-        if(ctrl.products[i].id === product_id){
+        if(ctrl.products[i].id === productId){
           ctrl.products[i] = resp;
         };
       };
@@ -47,10 +47,10 @@ function Admin(productFactory, Upload, $scope, productFactory, categoryFactory) 
     });
   };
 
-  ctrl.changePrice = function(product_id, product_price) {
-    productFactory.patch({ price: product_price, id: product_id}).$promise.then(function(resp){
+  ctrl.changePrice = function(productId, productPrice) {
+    productFactory.patch({ price: productPrice, id: productId}).$promise.then(function(resp){
       for ( var i = 0; i < ctrl.products.length ; i++) {
-        if(ctrl.products[i].id === product_id){
+        if(ctrl.products[i].id === productId){
           ctrl.products[i] = resp;
         };
       };
@@ -58,20 +58,44 @@ function Admin(productFactory, Upload, $scope, productFactory, categoryFactory) 
     });
   };
 
-  ctrl.delete = function(product_id) {
+  ctrl.delete = function(productId) {
     if (confirm('Are you sure? This can not be undone!')) {
-      productFactory.destroy({id: product_id}).$promise.then(function(){
+      productFactory.destroy({id: productId}).$promise.then(function(){
         for ( var i = 0; i < ctrl.products.length ; i++) {
-          if(ctrl.products[i].id === product_id){
+          if(ctrl.products[i].id === productId){
             delete ctrl.products[i];
           };
         };
       })
+    };
+  };
+
+  ctrl.removeCat = function(productId, categoryId) {
+    var data = {
+      params: {
+        'product_id': productId,
+        'category_id': categoryId
+      }
     }
-  }
+    $http.delete('/api/v1/category_items/' + 0, data).then(function(resp) {
+      for ( var i = 0; i < ctrl.products.length ; i++) {
+        if(ctrl.products[i].id === productId){
+          for ( var x = 0; x < ctrl.products[i].categories.length ; x++)
+            if(ctrl.products[i].categories[x].id === categoryId){
+              delete ctrl.products[i].categories[x];
+            };
+          };
+        };
+      });
+    };
+
 
   $scope.$on('newProduct', function (emitEvent, product) { // from newProduct.js
     ctrl.products.push(product);
+  });
+
+  $scope.$on('addCategory', function(e, category) {
+    ctrl.categories.push(category);
   });
 
 };

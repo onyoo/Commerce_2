@@ -39,16 +39,17 @@
   padding: .3em;
 }
 
+.cat_border:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
 .close_button {
   width: .7em;
 }
 
 .fixed-height {
   height: 2em;
-}
-
-#category_section {
-  border-top: 1px solid lightgrey;
 }
 
 @media all and (min-width: 0px) and (max-width: 497px) {

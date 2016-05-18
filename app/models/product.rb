@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   has_many :category_items
-  has_many :categories, through: :category_items
-  has_many :reviews
+  has_many :categories, through: :category_items, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   has_attached_file :product_image
   validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\Z/

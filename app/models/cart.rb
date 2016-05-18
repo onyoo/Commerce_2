@@ -41,4 +41,11 @@ class Cart < ActiveRecord::Base
     cart.destroy
   end
 
+  def return_items
+    self.products.each do |product|
+      product.inventory += self.line_items.find_by(product_id: product.id).quantity
+      product.save
+    end
+  end
+
 end

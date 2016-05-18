@@ -24,6 +24,14 @@
 #   <<: *default
 #   database: db/production.sqlite3
 
+test:
+  adapter: postgresql
+  encoding: utf8
+  # username: roberto
+  # password:
+  host: localhost
+  database: db_dev
+
 development:
   adapter: postgresql
   encoding: utf8

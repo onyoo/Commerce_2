@@ -20,10 +20,10 @@ module Api
 
       def update
         product = Product.find(params[:id])
-        if params[:product_image]
+        if current_user.admin? && params[:product_image]
           product.save_image_url(params)
           render json: {url: product.image_url}
-        elsif product.update(product_params)
+        elsif current_user.admin? && product.update(product_params)
           render json: product
         end
       end

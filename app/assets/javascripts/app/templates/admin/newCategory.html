@@ -1,0 +1,22 @@
+<div class="black_out" ng-click="$parent.addCategory=false; addCategory.clearForm()">
+  <div class="light_box" ng-click="$event.stopPropagation()">
+    <div><br>
+
+      <form ng-submit="addCategory.submitCategory(); $parent.addCategory=false">
+        <input type="text" ng-model="categoryForm.name">
+        <input type="submit" class="point_5_margin" value="Create Category">
+      </form>
+    <br>
+      Existing Categories <br>
+      (click to delete):
+      <p ng-repeat="cat in addCategory.categories"
+          id="cat_id_{{cat.id}}">{{cat.name}}
+        <img src="/system/site_images/close_button.png"
+              alt="delete categry button"
+              id="category_{{cat.id}}"
+              class="close_button"
+              ng-click="addCategory.deleteCategory(cat.id)">
+      </p>
+    </div>
+  </div>
+</div>

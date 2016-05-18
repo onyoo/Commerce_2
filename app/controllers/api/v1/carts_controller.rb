@@ -27,7 +27,9 @@ module Api
       end
 
       def destroy
-        Cart.destroy(params[:id])
+        cart = Cart.find(params[:id])
+        cart.return_items
+        cart.destroy
         render nothing: true, status: 202
       end
 

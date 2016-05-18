@@ -9,7 +9,8 @@
       <div class="center-middle">
         <p class=" col-sm-6">{{indexItem.product.name}}</p>
         <p class=" col-sm-6">{{indexItem.product.price | currency}}</p>
-        <p class=" col-sm-6">Only {{indexItem.product.inventory}} left!</p><br/>
+        <p class=" col-sm-6" ng-show="indexItem.product.inventory > 0">Only {{indexItem.product.inventory}} left!</p><br/>
+        <p class=" col-sm-6" ng-show="indexItem.product.inventory == 0">Sold Out!</p><br/>
       </div>
 
   </div>
