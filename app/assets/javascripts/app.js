@@ -1,6 +1,6 @@
 angular
   .module('app', ['ui.router', 'templates', 'ngResource', 'Devise', 'ngFileUpload', 'mgcrea.ngStrap'])
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
       .state('home', {
@@ -59,4 +59,4 @@ angular
         controller: 'Admin as admin'
       });
     $urlRouterProvider.otherwise('/index');
-  });
+  }]);
